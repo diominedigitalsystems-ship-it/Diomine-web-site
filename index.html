@@ -131,10 +131,24 @@
         }
         .brand img { width: 30px; height: 30px; }
         .brand-name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+        .brand-main {
             font-family: var(--font-display);
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 1.2rem;
             letter-spacing: 0.01em;
+            font-style: italic;
+            color: var(--quartz);
+        }
+        .brand-sub {
+            font-family: var(--font-mono);
+            font-size: 0.56rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ochre);
         }
 
         .nav-links {
@@ -212,6 +226,7 @@
 
         /* ---------- HERO ---------- */
         .hero {
+            position: relative;
             padding: clamp(56px, 9vw, 100px) var(--edge) clamp(48px, 7vw, 80px);
             max-width: var(--max-width);
             margin: 0 auto;
@@ -219,6 +234,13 @@
             grid-template-columns: 1.15fr 0.85fr;
             gap: 56px;
             align-items: center;
+            background-image:
+                linear-gradient(115deg, rgba(21,16,12,0.92) 14%, rgba(21,16,12,0.58) 52%, rgba(21,16,12,0.3) 94%),
+                linear-gradient(to bottom, transparent 58%, var(--ink) 100%),
+                url('camion-mine.png');
+            background-size: cover, cover, cover;
+            background-position: center, center, center;
+            background-repeat: no-repeat, no-repeat, no-repeat;
         }
 
         .hero h1 {
@@ -506,7 +528,14 @@
                 border-bottom: 1px solid var(--hairline);
                 gap: 16px;
             }
-            .hero { grid-template-columns: 1fr; }
+            .hero {
+                grid-template-columns: 1fr;
+                background-image:
+                    linear-gradient(to bottom, rgba(21,16,12,0.8) 0%, var(--ink) 96%),
+                    url('camion-mine.png');
+                background-size: cover, cover;
+                background-position: center, center;
+            }
             .stereonet-box { order: -1; }
             .stereonet-box svg { max-width: 240px; }
             .about-grid { grid-template-columns: 1fr; }
@@ -529,12 +558,15 @@
         <nav class="primary">
             <a href="#top" class="brand">
                 <img src="diomine logo.png" alt="Diomine Digital Systems logo">
-                <span class="brand-name">DIOMINE</span>
+                <span class="brand-name">
+                    <span class="brand-main">Diomine</span>
+                    <span class="brand-sub">Digital&nbsp;Systems</span>
+                </span>
             </a>
 
             <ul class="nav-links">
                 <li><a href="#about" class="lang-en">Company</a><a href="#about" class="lang-fr">Société</a></li>
-                <li><a href="#article" class="lang-en">Insights</a><a href="#article" class="lang-fr">Démonstrations</a></li>
+                <li><a href="#article" class="lang-en">Formations</a><a href="#article" class="lang-fr">Formations</a></li>
                 <li><a href="#downloads" class="lang-en">Solutions</a><a href="#downloads" class="lang-fr">Solutions</a></li>
                 <li><a href="expertise.html" class="lang-en">Expertise</a><a href="expertise.html" class="lang-fr">Expertise</a></li>
                 <li><a href="contact.html" class="lang-en">Contact</a><a href="contact.html" class="lang-fr">Contact</a></li>
@@ -636,12 +668,12 @@
 
     <section class="section reveal" id="article">
         <div class="section-head">
-            <p class="eyebrow lang-en">Insights</p>
-            <p class="eyebrow lang-fr">Démonstrations</p>
+            <p class="eyebrow lang-en">Formations</p>
+            <p class="eyebrow lang-fr">Formations</p>
             <h2 class="lang-en">From the field</h2>
             <h2 class="lang-fr">Depuis le terrain</h2>
-            <p class="lang-en">Demonstrations of how Diomine DH Auditor handles real structural, photographic and drilling data.</p>
-            <p class="lang-fr">Démonstrations de la façon dont Diomine DH Auditor traite des données structurales, photographiques et de forage réelles.</p>
+            <p class="lang-en">Demonstrations and trainings on how Diomine DH Auditor handles real structural, photographic and drilling data.</p>
+            <p class="lang-fr">Démonstrations et formations sur la façon dont Diomine DH Auditor traite des données structurales, photographiques et de forage réelles.</p>
         </div>
 
         <div class="report">
@@ -674,6 +706,45 @@
                 <p class="report-tag">DH Auditor v2026.1.2</p>
                 <h3>Optimizing exploration and grade control drillhole planning</h3>
                 <p>In this technical demonstration, expert Newton Diomandé showcases the power and flexibility of Diomine DH Auditor (v2026.1.2) for the precise planning of drilling programs and soil geochemistry. The software stands out with its unique import channel capable of handling various formats (CSV, DXF, GPX) and its seamless integration with Google satellite basemaps for real-time geographic positioning. Thanks to the intuitive "Generate Drilling" tool, users can instantly configure point grids with automatic ID incrementing, define the orientation of survey lines (layons), and adjust drill spacing with millimeter precision. Management is further streamlined by a dynamic attribute table that allows for direct data export to Excel, GPX, or DXF, ensuring a fast and efficient workflow for both exploration and mine geologists.</p>
+            </div>
+        </div>
+
+        <div class="report">
+            <div class="report-media">
+                <iframe src="https://www.youtube.com/embed/MMi6Y84gNE0" title="Diomine training" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div>
+                <p class="report-tag">Formation</p>
+                <h3 class="lang-en">Title to confirm</h3>
+                <h3 class="lang-fr">Titre à confirmer</h3>
+                <p class="lang-en"><em>Send me this video's title and a short summary and I'll drop it in right away.</em></p>
+                <p class="lang-fr"><em>Envoyez-moi le titre et un court résumé de cette formation et je l'intègre immédiatement.</em></p>
+            </div>
+        </div>
+
+        <div class="report">
+            <div class="report-media">
+                <iframe src="https://www.youtube.com/embed/vEVVi_w9diI" title="Diomine training" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div>
+                <p class="report-tag">Formation</p>
+                <h3 class="lang-en">Title to confirm</h3>
+                <h3 class="lang-fr">Titre à confirmer</h3>
+                <p class="lang-en"><em>Send me this video's title and a short summary and I'll drop it in right away.</em></p>
+                <p class="lang-fr"><em>Envoyez-moi le titre et un court résumé de cette formation et je l'intègre immédiatement.</em></p>
+            </div>
+        </div>
+
+        <div class="report">
+            <div class="report-media">
+                <iframe src="https://www.youtube.com/embed/XeboJdhj360" title="Diomine training" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div>
+                <p class="report-tag">Formation</p>
+                <h3 class="lang-en">Title to confirm</h3>
+                <h3 class="lang-fr">Titre à confirmer</h3>
+                <p class="lang-en"><em>Send me this video's title and a short summary and I'll drop it in right away.</em></p>
+                <p class="lang-fr"><em>Envoyez-moi le titre et un court résumé de cette formation et je l'intègre immédiatement.</em></p>
             </div>
         </div>
     </section>
