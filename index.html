@@ -88,6 +88,10 @@
 
         .lang-fr, [data-lang="en"] .lang-fr { display: none; }
         [data-lang="fr"] .lang-en { display: none; }
+        [data-lang="en"] .curriculum-list.lang-fr,
+        [data-lang="fr"] .curriculum-list.lang-en,
+        [data-lang="en"] .founder-credentials.lang-fr,
+        [data-lang="fr"] .founder-credentials.lang-en { display: none !important; }
 
         /* ---------- ANNOUNCEMENT BAR ---------- */
         .announcement {
@@ -514,6 +518,162 @@
         .modal-content p { color: var(--quartz-dim); margin: 0; }
         .modal-buttons { margin-top: 26px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+        /* ---------- FOUNDER PROFILE ---------- */
+        .founder-section {
+            position: relative;
+            border: 1px solid var(--hairline);
+            border-radius: 14px;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 0% 50%, rgba(217, 128, 44, 0.08), transparent 50%),
+                var(--bedrock);
+        }
+        .founder-layout {
+            display: grid;
+            grid-template-columns: 0.38fr 0.62fr;
+            min-height: 480px;
+        }
+        .founder-portrait {
+            position: relative;
+            overflow: hidden;
+        }
+        .founder-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .founder-portrait-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px 24px;
+            background: linear-gradient(to top, rgba(21,16,12,0.92), transparent);
+        }
+        .founder-portrait-overlay .founder-name-mobile {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--quartz);
+        }
+        .founder-portrait-overlay .founder-title-mobile {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--ochre);
+            letter-spacing: 0.06em;
+        }
+        .founder-body {
+            padding: clamp(28px, 4vw, 44px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .founder-name {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 2.8vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .founder-role {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            letter-spacing: 0.08em;
+            color: var(--ochre);
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .founder-bio {
+            color: var(--quartz-dim);
+            font-size: 0.94rem;
+            text-align: justify;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+        .founder-bio strong { color: var(--quartz); }
+        .founder-journey {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin: 20px 0 18px;
+        }
+        .journey-step {
+            position: relative;
+            padding: 14px 12px 14px 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 6px;
+            border: 1px solid var(--hairline);
+            transition: border-color 0.2s ease;
+        }
+        .journey-step:hover { border-color: var(--ochre-soft); }
+        .journey-num {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.06em;
+            color: var(--ochre);
+            margin-bottom: 6px;
+        }
+        .journey-step h4 {
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--quartz);
+            margin: 0 0 4px;
+            line-height: 1.2;
+        }
+        .journey-step p {
+            font-size: 0.72rem;
+            color: var(--quartz-dim);
+            margin: 0;
+            line-height: 1.4;
+        }
+        .founder-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 14px;
+        }
+        .credential-tag {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.03em;
+            color: var(--quartz-dim);
+            border: 1px solid var(--hairline);
+            border-radius: 4px;
+            padding: 3px 8px;
+        }
+        .credential-tag.highlight {
+            border-color: var(--ochre-soft);
+            color: var(--ochre);
+        }
+        .founder-companies {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid var(--hairline);
+        }
+        .founder-companies .eyebrow { margin-bottom: 10px; }
+        .company-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .company-pill {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--quartz-dim);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--hairline);
+            border-radius: 999px;
+            padding: 4px 12px;
+        }
+
+        @media (max-width: 880px) {
+            .founder-layout { grid-template-columns: 1fr; }
+            .founder-portrait { height: 340px; }
+            .founder-journey { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .founder-journey { grid-template-columns: 1fr; }
+        }
+
         /* ---------- TRAINING ANNOUNCEMENT ---------- */
         .training-announce {
             position: relative;
@@ -787,6 +947,7 @@
 
             <ul class="nav-links">
                 <li><a href="#about" class="lang-en">Company</a><a href="#about" class="lang-fr">Société</a></li>
+                <li><a href="#founder" class="lang-en">Founder</a><a href="#founder" class="lang-fr">Fondateur</a></li>
                 <li><a href="#training" class="lang-en" style="color:var(--verdite)">Training</a><a href="#training" class="lang-fr" style="color:var(--verdite)">Formation</a></li>
                 <li><a href="#article" class="lang-en">Demos</a><a href="#article" class="lang-fr">Démos</a></li>
                 <li><a href="#downloads" class="lang-en">Solutions</a><a href="#downloads" class="lang-fr">Solutions</a></li>
@@ -875,6 +1036,107 @@
         </div>
     </section>
 
+    <section class="section reveal" id="founder">
+        <div class="section-head">
+            <p class="eyebrow lang-en">Founder &amp; Lead Developer</p>
+            <p class="eyebrow lang-fr">Fondateur &amp; Développeur principal</p>
+            <h2 class="lang-en">The geologist behind the code</h2>
+            <h2 class="lang-fr">Le géologue derrière le code</h2>
+        </div>
+
+        <div class="founder-section">
+            <div class="founder-layout">
+                <div class="founder-portrait">
+                    <img src="portrait-newton.png" alt="Newton Diomandé — Founder of Diomine Digital Systems" loading="lazy">
+                    <div class="founder-portrait-overlay">
+                        <div class="founder-name-mobile">Newton Diomandé</div>
+                        <div class="founder-title-mobile lang-en">Founder · Diomine Digital Systems</div>
+                        <div class="founder-title-mobile lang-fr">Fondateur · Diomine Digital Systems</div>
+                    </div>
+                </div>
+
+                <div class="founder-body">
+                    <p class="founder-name">Newton Diomandé</p>
+                    <p class="founder-role lang-en">Geologist · Software Developer · Founder</p>
+                    <p class="founder-role lang-fr">Géologue · Développeur logiciel · Fondateur</p>
+
+                    <p class="founder-bio lang-en">Newton Diomandé is a mining geologist and software engineer from Côte d'Ivoire who has built his career across the <strong>entire mining value chain</strong> — from grassroots exploration to open-pit operations and, today, underground mining. Holding a <strong>Master's degree in Geology and Mineral Resources</strong> from Université Félix Houphouët-Boigny, he further sharpened his expertise through advanced diplomas in <strong>Structural Geology</strong> (Indian Institute of Technology, Kanpur), <strong>Geographic Information Systems</strong> (Indian Institute of Infrastructure, Kharagpur), Probability &amp; Statistics, and Leadership &amp; Management, complemented by certifications in Python, HTML, CSS and JavaScript.</p>
+
+                    <p class="founder-bio lang-fr">Newton Diomandé est un géologue minier et ingénieur logiciel ivoirien qui a bâti sa carrière sur <strong>l'intégralité de la chaîne de valeur minière</strong> — de l'exploration préliminaire aux opérations à ciel ouvert et, aujourd'hui, à la mine souterraine. Titulaire d'un <strong>Master en Géologie et Ressources Minérales</strong> de l'Université Félix Houphouët-Boigny, il a approfondi son expertise à travers des diplômes avancés en <strong>Géologie Structurale</strong> (Indian Institute of Technology, Kanpur), en <strong>Systèmes d'Information Géographique</strong> (Indian Institute of Infrastructure, Kharagpur), en Probabilité &amp; Statistique, et en Leadership &amp; Management, complétés par des certifications en Python, HTML, CSS et JavaScript.</p>
+
+                    <div class="founder-journey">
+                        <div class="journey-step">
+                            <p class="journey-num">PHASE 01</p>
+                            <h4 class="lang-en">Exploration</h4>
+                            <h4 class="lang-fr">Exploration</h4>
+                            <p class="lang-en">From semi-industrial projects to world-class deposit discoveries across Côte d'Ivoire, including the Floleu mine at Endeavour Mining.</p>
+                            <p class="lang-fr">Des projets semi-industriels aux découvertes de gisements de classe mondiale à travers la Côte d'Ivoire, dont la mine de Floleu chez Endeavour Mining.</p>
+                        </div>
+                        <div class="journey-step">
+                            <p class="journey-num">PHASE 02</p>
+                            <h4 class="lang-en">Open Pit</h4>
+                            <h4 class="lang-fr">Ciel ouvert</h4>
+                            <p class="lang-en">Grade control, pit mapping and resource modeling at Lafigué — turning drillhole data into production plans.</p>
+                            <p class="lang-fr">Contrôle de minerai, cartographie de fosse et modélisation de ressources à Lafigué — transformer les données de forage en plans de production.</p>
+                        </div>
+                        <div class="journey-step">
+                            <p class="journey-num">PHASE 03</p>
+                            <h4 class="lang-en">Underground</h4>
+                            <h4 class="lang-fr">Souterrain</h4>
+                            <p class="lang-en">Currently at Perseus Mining, contributing to the first underground mine project in Côte d'Ivoire — a milestone for the country's mining industry.</p>
+                            <p class="lang-fr">Actuellement chez Perseus Mining, participant au premier projet de mine souterraine en Côte d'Ivoire — une étape historique pour l'industrie minière du pays.</p>
+                        </div>
+                        <div class="journey-step">
+                            <p class="journey-num">PHASE 04</p>
+                            <h4 class="lang-en">Software</h4>
+                            <h4 class="lang-fr">Logiciel</h4>
+                            <p class="lang-en">Founded Diomine Digital Systems and developed DH Auditor and MRN to solve the data challenges he encountered daily in the field.</p>
+                            <p class="lang-fr">Fondateur de Diomine Digital Systems, il a développé DH Auditor et MRN pour résoudre les défis de données qu'il rencontrait chaque jour sur le terrain.</p>
+                        </div>
+                    </div>
+
+                    <p class="founder-bio lang-en">His "full-cycle" field experience — having worked with <strong>NF Consult</strong>, <strong>Barrick Gold</strong>, <strong>Endeavour Mining</strong>, <strong>IronRidge Resources</strong>, <strong>Resolute Mining</strong>, <strong>Manas Resources</strong>, <strong>Turaco Gold</strong> and <strong>Perseus Mining</strong> — gave him a first-hand understanding of the data reliability, audit speed and operational efficiency gaps that mining teams face every day. This is the problem Diomine Digital Systems was built to solve: put technology at the service of geological expertise to boost mining productivity across Africa and beyond.</p>
+
+                    <p class="founder-bio lang-fr">Son expérience terrain « full-cycle » — ayant travaillé avec <strong>NF Consult</strong>, <strong>Barrick Gold</strong>, <strong>Endeavour Mining</strong>, <strong>IronRidge Resources</strong>, <strong>Resolute Mining</strong>, <strong>Manas Resources</strong>, <strong>Turaco Gold</strong> et <strong>Perseus Mining</strong> — lui a donné une compréhension directe des lacunes en fiabilité des données, vitesse d'audit et efficacité opérationnelle auxquelles les équipes minières font face au quotidien. C'est le problème que Diomine Digital Systems a été créé pour résoudre : mettre la technologie au service de l'expertise géologique pour booster la productivité minière en Afrique et au-delà.</p>
+
+                    <div class="founder-credentials lang-en">
+                        <span class="credential-tag highlight">MSc Geology &amp; Mineral Resources</span>
+                        <span class="credential-tag">Structural Geology — IIT Kanpur</span>
+                        <span class="credential-tag">GIS — IIT Kharagpur</span>
+                        <span class="credential-tag">Probability &amp; Statistics</span>
+                        <span class="credential-tag">Leadership &amp; Management</span>
+                        <span class="credential-tag">Python</span>
+                        <span class="credential-tag">HTML / CSS / JS</span>
+                    </div>
+                    <div class="founder-credentials lang-fr">
+                        <span class="credential-tag highlight">Master Géologie &amp; Ressources Minérales</span>
+                        <span class="credential-tag">Géologie Structurale — IIT Kanpur</span>
+                        <span class="credential-tag">SIG — IIT Kharagpur</span>
+                        <span class="credential-tag">Probabilité &amp; Statistique</span>
+                        <span class="credential-tag">Leadership &amp; Management</span>
+                        <span class="credential-tag">Python</span>
+                        <span class="credential-tag">HTML / CSS / JS</span>
+                    </div>
+
+                    <div class="founder-companies">
+                        <p class="eyebrow lang-en" style="margin-bottom:10px">Career footprint</p>
+                        <p class="eyebrow lang-fr" style="margin-bottom:10px">Parcours professionnel</p>
+                        <div class="company-logos">
+                            <span class="company-pill">NF Consult</span>
+                            <span class="company-pill">Barrick Gold</span>
+                            <span class="company-pill">Endeavour Mining</span>
+                            <span class="company-pill">IronRidge Resources</span>
+                            <span class="company-pill">Resolute Mining</span>
+                            <span class="company-pill">Manas Resources</span>
+                            <span class="company-pill">Turaco Gold</span>
+                            <span class="company-pill">Perseus Mining</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section reveal">
         <div class="release-banner">
             <span class="release-stamp lang-en">V2026.3 · OFFICIAL RELEASE</span>
@@ -908,7 +1170,28 @@
                 <div>
                     <p class="eyebrow lang-en" style="margin-bottom:14px">Program · 18 modules</p>
                     <p class="eyebrow lang-fr" style="margin-bottom:14px">Programme · 18 modules</p>
-                    <ol class="curriculum-list">
+                    <ol class="curriculum-list lang-en">
+                        <li><span class="step-num">01</span> Database creation</li>
+                        <li><span class="step-num">02</span> Drillhole &amp; assay display</li>
+                        <li><span class="step-num">03</span> Composite creation</li>
+                        <li><span class="step-num">04</span> Mineralization digitizing</li>
+                        <li><span class="step-num">05</span> Geology digitizing</li>
+                        <li><span class="step-num">06</span> Geological model creation</li>
+                        <li><span class="step-num">07</span> Alteration profile digitizing</li>
+                        <li><span class="step-num">08</span> Regolith model creation</li>
+                        <li><span class="step-num">09</span> Capping / top-cutting</li>
+                        <li><span class="step-num">10</span> Domain assignment</li>
+                        <li><span class="step-num">11</span> Density assignment</li>
+                        <li><span class="step-num">12</span> Variogram analysis</li>
+                        <li><span class="step-num">13</span> Block model creation</li>
+                        <li><span class="step-num">14</span> Attribute creation</li>
+                        <li><span class="step-num">15</span> Script creation</li>
+                        <li><span class="step-num">16</span> Resource estimation (Kriging &amp; IDW)</li>
+                        <li><span class="step-num">17</span> Block model reporting</li>
+                        <li><span class="step-num">18</span> Swath plotting</li>
+                        <li class="curriculum-footer">→ Diomine Digital Systems Certification</li>
+                    </ol>
+                    <ol class="curriculum-list lang-fr">
                         <li><span class="step-num">01</span> Création de base de données</li>
                         <li><span class="step-num">02</span> Affichage des forages et assays</li>
                         <li><span class="step-num">03</span> Création de composite</li>
@@ -982,7 +1265,8 @@
                     </div>
 
                     <div class="tools-row" style="flex-wrap:wrap;">
-                        <span>Tools</span>
+                        <span class="lang-en">Tools</span>
+                        <span class="lang-fr">Outils</span>
                         <span class="tool-tag">Datamine Studio</span>
                         <span class="tool-tag">Micromine</span>
                         <span class="tool-tag">Surpac</span>
@@ -1024,8 +1308,10 @@
             </div>
             <div>
                 <p class="report-tag">DH Auditor 2026.1.2</p>
-                <h3>Structural mapping and stereographic analysis</h3>
-                <p>This video showcases the advanced features of Diomine DH Auditor 2026, a tool designed to streamline the work of structural geologists and mining engineers through simplified stereographic analysis. Unlike other software that requires creating separate tables for each structure type, DH Auditor allows for the import of a global database (Excel or CSV) and uses dynamic filters to instantly isolate elements such as quartz veins or schistosity. The tutorial details visual plot customization, the choice between Schmidt projections (for statistics) and Wulff projections (for angles), as well as 3D data visualization. Finally, the author demonstrates how to export results, including an automatic calculation of Mean Plans (Main Plan), which is essential for precise future drill planning.</p>
+                <h3 class="lang-en">Structural mapping and stereographic analysis</h3>
+                <h3 class="lang-fr">Cartographie structurale et analyse stéréographique</h3>
+                <p class="lang-en">This video showcases the advanced features of Diomine DH Auditor 2026, a tool designed to streamline the work of structural geologists and mining engineers through simplified stereographic analysis. Unlike other software that requires creating separate tables for each structure type, DH Auditor allows for the import of a global database (Excel or CSV) and uses dynamic filters to instantly isolate elements such as quartz veins or schistosity. The tutorial details visual plot customization, the choice between Schmidt projections (for statistics) and Wulff projections (for angles), as well as 3D data visualization. Finally, the author demonstrates how to export results, including an automatic calculation of Mean Plans (Main Plan), which is essential for precise future drill planning.</p>
+                <p class="lang-fr">Cette vidéo présente les fonctionnalités avancées de Diomine DH Auditor 2026, un outil conçu pour simplifier le travail des géologues structuraux et des ingénieurs miniers grâce à une analyse stéréographique simplifiée. Contrairement à d'autres logiciels qui nécessitent la création de tables séparées pour chaque type de structure, DH Auditor permet l'importation d'une base de données globale (Excel ou CSV) et utilise des filtres dynamiques pour isoler instantanément des éléments tels que les veines de quartz ou la schistosité. Le tutoriel détaille la personnalisation visuelle des graphiques, le choix entre les projections de Schmidt (pour les statistiques) et de Wulff (pour les angles), ainsi que la visualisation 3D des données. Enfin, l'auteur montre comment exporter les résultats, y compris le calcul automatique des Plans Moyens (Main Plan), essentiel pour la planification précise des forages futurs.</p>
             </div>
         </div>
 
@@ -1035,8 +1321,10 @@
             </div>
             <div>
                 <p class="report-tag">DH Auditor v2026.1.2</p>
-                <h3>Auditing field photographs and georeferenced texture inspection</h3>
-                <p>In the competitive fields of geological exploration and mining, field data precision is the cornerstone of success, and the latest Diomine DH Auditor (v2026.1.2) introduces a powerful feature designed to bridge the gap between field photography and 3D modeling by transforming outcrop photos into actionable geospatial objects. By allowing geologists to precisely locate outcrops at their exact geographic position, attach direct geological descriptions to high-resolution images, and streamline audits through simplified data verification, this update ensures that field photographs are no longer static, disconnected files. The process, demonstrated by expert Diander Newton, is engineered for speed and intuition: users simply navigate to the "Import Georeferenced Image" tool, enter the precise X, Y, and Z coordinates, and enrich the data with technical metadata such as vein orientation or alteration zones. Beyond simple data management and grouping, the software enhances spatial interaction through an interactive pop-up mode for detailed texture inspection and Google Maps integration for real-world topographic cross-referencing.</p>
+                <h3 class="lang-en">Auditing field photographs and georeferenced texture inspection</h3>
+                <h3 class="lang-fr">Audit de photographies de terrain et inspection de textures géoréférencées</h3>
+                <p class="lang-en">In the competitive fields of geological exploration and mining, field data precision is the cornerstone of success, and the latest Diomine DH Auditor (v2026.1.2) introduces a powerful feature designed to bridge the gap between field photography and 3D modeling by transforming outcrop photos into actionable geospatial objects. By allowing geologists to precisely locate outcrops at their exact geographic position, attach direct geological descriptions to high-resolution images, and streamline audits through simplified data verification, this update ensures that field photographs are no longer static, disconnected files. The process, demonstrated by expert Diander Newton, is engineered for speed and intuition: users simply navigate to the "Import Georeferenced Image" tool, enter the precise X, Y, and Z coordinates, and enrich the data with technical metadata such as vein orientation or alteration zones. Beyond simple data management and grouping, the software enhances spatial interaction through an interactive pop-up mode for detailed texture inspection and Google Maps integration for real-world topographic cross-referencing.</p>
+                <p class="lang-fr">Dans les domaines compétitifs de l'exploration géologique et de l'exploitation minière, la précision des données de terrain est la pierre angulaire du succès. La dernière version de Diomine DH Auditor (v2026.1.2) introduit une fonctionnalité puissante conçue pour combler le fossé entre la photographie de terrain et la modélisation 3D en transformant les photos d'affleurements en objets géospatiaux exploitables. En permettant aux géologues de localiser précisément les affleurements à leur position géographique exacte, d'attacher des descriptions géologiques directes aux images haute résolution et de simplifier les audits par une vérification simplifiée des données, cette mise à jour garantit que les photographies de terrain ne sont plus des fichiers statiques et déconnectés. Le processus, démontré par l'expert Newton Diomandé, est conçu pour la rapidité et l'intuition : les utilisateurs naviguent simplement vers l'outil « Import Georeferenced Image », saisissent les coordonnées X, Y et Z précises, et enrichissent les données avec des métadonnées techniques telles que l'orientation des veines ou les zones d'altération.</p>
             </div>
         </div>
 
@@ -1046,8 +1334,10 @@
             </div>
             <div>
                 <p class="report-tag">DH Auditor v2026.1.2</p>
-                <h3>Optimizing exploration and grade control drillhole planning</h3>
-                <p>In this technical demonstration, expert Newton Diomandé showcases the power and flexibility of Diomine DH Auditor (v2026.1.2) for the precise planning of drilling programs and soil geochemistry. The software stands out with its unique import channel capable of handling various formats (CSV, DXF, GPX) and its seamless integration with Google satellite basemaps for real-time geographic positioning. Thanks to the intuitive "Generate Drilling" tool, users can instantly configure point grids with automatic ID incrementing, define the orientation of survey lines (layons), and adjust drill spacing with millimeter precision. Management is further streamlined by a dynamic attribute table that allows for direct data export to Excel, GPX, or DXF, ensuring a fast and efficient workflow for both exploration and mine geologists.</p>
+                <h3 class="lang-en">Optimizing exploration and grade control drillhole planning</h3>
+                <h3 class="lang-fr">Optimisation de la planification des forages d'exploration et de contrôle de minerai</h3>
+                <p class="lang-en">In this technical demonstration, expert Newton Diomandé showcases the power and flexibility of Diomine DH Auditor (v2026.1.2) for the precise planning of drilling programs and soil geochemistry. The software stands out with its unique import channel capable of handling various formats (CSV, DXF, GPX) and its seamless integration with Google satellite basemaps for real-time geographic positioning. Thanks to the intuitive "Generate Drilling" tool, users can instantly configure point grids with automatic ID incrementing, define the orientation of survey lines (layons), and adjust drill spacing with millimeter precision. Management is further streamlined by a dynamic attribute table that allows for direct data export to Excel, GPX, or DXF, ensuring a fast and efficient workflow for both exploration and mine geologists.</p>
+                <p class="lang-fr">Dans cette démonstration technique, l'expert Newton Diomandé présente la puissance et la flexibilité de Diomine DH Auditor (v2026.1.2) pour la planification précise des programmes de forage et de géochimie de sol. Le logiciel se distingue par son canal d'importation unique capable de gérer divers formats (CSV, DXF, GPX) et son intégration transparente avec les fonds de carte satellite Google pour le positionnement géographique en temps réel. Grâce à l'outil intuitif « Generate Drilling », les utilisateurs peuvent configurer instantanément des grilles de points avec incrémentation automatique des identifiants, définir l'orientation des layons et ajuster l'espacement des forages avec une précision millimétrique. La gestion est encore simplifiée par une table attributaire dynamique permettant l'export direct des données vers Excel, GPX ou DXF.</p>
             </div>
         </div>
 
@@ -1056,7 +1346,7 @@
                 <iframe src="https://www.youtube.com/embed/MMi6Y84gNE0" title="Diomine training" allowfullscreen loading="lazy"></iframe>
             </div>
             <div>
-                <p class="report-tag">Formation</p>
+                <p class="report-tag lang-en">Training</p><p class="report-tag lang-fr">Formation</p>
                 <h3 class="lang-en">Title to confirm</h3>
                 <h3 class="lang-fr">Titre à confirmer</h3>
                 <p class="lang-en"><em>Send me this video's title and a short summary and I'll drop it in right away.</em></p>
@@ -1069,7 +1359,7 @@
                 <iframe src="https://www.youtube.com/embed/vEVVi_w9diI" title="Diomine training" allowfullscreen loading="lazy"></iframe>
             </div>
             <div>
-                <p class="report-tag">Formation</p>
+                <p class="report-tag lang-en">Training</p><p class="report-tag lang-fr">Formation</p>
                 <h3 class="lang-en">Title to confirm</h3>
                 <h3 class="lang-fr">Titre à confirmer</h3>
                 <p class="lang-en"><em>Send me this video's title and a short summary and I'll drop it in right away.</em></p>
@@ -1082,7 +1372,7 @@
                 <iframe src="https://www.youtube.com/embed/XeboJdhj360" title="Diomine training" allowfullscreen loading="lazy"></iframe>
             </div>
             <div>
-                <p class="report-tag">Formation</p>
+                <p class="report-tag lang-en">Training</p><p class="report-tag lang-fr">Formation</p>
                 <h3 class="lang-en">Title to confirm</h3>
                 <h3 class="lang-fr">Titre à confirmer</h3>
                 <p class="lang-en"><em>Send me this video's title and a short summary and I'll drop it in right away.</em></p>
@@ -1154,8 +1444,10 @@
                 <div class="specimen-top">
                     <span style="font-size:42px;">📊</span>
                 </div>
-                <h3>Training Data</h3>
-                <p class="specimen-spec">ZIP · PRESENTATION DATASETS</p>
+                <h3 class="lang-en">Training Data</h3>
+                <h3 class="lang-fr">Données de formation</h3>
+                <p class="specimen-spec lang-en">ZIP · PRESENTATION DATASETS</p>
+                <p class="specimen-spec lang-fr">ZIP · JEUX DE DONNÉES DE PRÉSENTATION</p>
                 <p class="lang-en">Sample datasets used in our masterclass presentations, ready to practice with.</p>
                 <p class="lang-fr">Jeux de données utilisés dans nos masterclass, prêts pour la pratique.</p>
                 <a href="https://github.com/diominedigitalsystems-ship-it/Diomine_Masterclass_data/raw/refs/heads/main/DDS_database.zip" class="btn btn-ghost lang-en" target="_blank">Get the data</a>
@@ -1190,7 +1482,8 @@
                 <p class="lang-fr">Nos logiciels sont gratuits. Vos dons nous aident à les maintenir et à développer de nouvelles fonctionnalités.</p>
             </div>
             <div class="support-actions">
-                <a href="https://www.paypal.com/donate/?hosted_button_id=EDGN2KD79DYU4" class="btn btn-line" target="_blank">Donate · PayPal</a>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=EDGN2KD79DYU4" class="btn btn-line lang-en" target="_blank">Donate · PayPal</a>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=EDGN2KD79DYU4" class="btn btn-line lang-fr" target="_blank">Donner · PayPal</a>
                 <div class="kofi-button-container">
                     <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
                     <script type='text/javascript'>
@@ -1228,8 +1521,8 @@
             <p class="lang-en">Our software is completely free, but your donations help us maintain it and develop new features. Would you like to support us before downloading?</p>
             <p class="lang-fr">Nos logiciels sont totalement gratuits, mais vos dons nous aident à les maintenir et à développer de nouvelles fonctionnalités. Souhaitez-vous nous soutenir avant de télécharger ?</p>
             <div class="modal-buttons">
-                <button id="modalDonateBtn" class="btn btn-primary">Donate</button>
-                <button id="modalSkipBtn" class="btn btn-ghost">Skip</button>
+                <button id="modalDonateBtn" class="btn btn-primary"><span class="lang-en">Donate</span><span class="lang-fr">Donner</span></button>
+                <button id="modalSkipBtn" class="btn btn-ghost"><span class="lang-en">Skip</span><span class="lang-fr">Passer</span></button>
             </div>
         </div>
     </div>
@@ -1245,7 +1538,8 @@
             try {
                 const r = await fetch('https://api.countapi.xyz/hit/diomine-systems-2026/visits');
                 const data = await r.json();
-                hitDisplay.innerText = "VISITS · " + (data.value || "2026");
+                const lang = document.body.getAttribute('data-lang') || 'en';
+                hitDisplay.innerText = (lang === 'fr' ? "VISITES · " : "VISITS · ") + (data.value || "2026");
             } catch {
                 hitDisplay.innerText = "VISITS · 2026";
             }
@@ -1280,7 +1574,12 @@
                     stars.forEach(s => {
                         s.style.color = s.getAttribute("data-value") <= val ? "var(--gold-vein)" : "var(--bedrock-2)";
                     });
-                    result.innerHTML = `Thank you — you rated this site ${val} / 5 ⭐`;
+                    const lang = document.body.getAttribute('data-lang');
+                    if (lang === 'fr') {
+                        result.innerHTML = `Merci — vous avez noté ce site ${val} / 5 ⭐`;
+                    } else {
+                        result.innerHTML = `Thank you — you rated this site ${val} / 5 ⭐`;
+                    }
                 });
             });
 
