@@ -10,6 +10,74 @@
     <meta name="keywords" content="Mining Software, Geology Software, Drillhole Planning, DH Auditor, Mining Engineering">
     <meta name="author" content="Diomine Digital Systems">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://diominedigitalsystems.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Diomine Digital Systems — Mining Software Engineering">
+    <meta property="og:description" content="Advanced mining software for geological auditing, drillhole planning, mapping and structural analysis. Free download.">
+    <meta property="og:url" content="https://diominedigitalsystems.com/">
+    <meta property="og:image" content="https://diominedigitalsystems.com/diomine logo.png">
+    <meta property="og:site_name" content="Diomine Digital Systems">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diomine Digital Systems — Mining Software Engineering">
+    <meta name="twitter:description" content="Advanced mining software for geological auditing, drillhole planning and structural analysis.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Diomine Digital Systems",
+        "url": "https://diominedigitalsystems.com",
+        "logo": "https://diominedigitalsystems.com/diomine logo.png",
+        "description": "Mining software engineering company specializing in geological auditing, drillhole planning, mapping and structural analysis.",
+        "foundingDate": "2024",
+        "founder": {
+            "@type": "Person",
+            "name": "Newton Diomandé",
+            "jobTitle": "Founder & Lead Developer"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Yamoussoukro",
+            "addressCountry": "CI"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "diominedigitalsystems@gmail.com",
+            "telephone": "+225-0545323078",
+            "contactType": "customer support"
+        },
+        "sameAs": [
+            "https://github.com/diominedigitalsystems-ship-it"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Diomine DH Auditor 2026.3",
+        "operatingSystem": "Windows 10/11",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Diomine Digital Systems"
+        },
+        "description": "Mining software for geological auditing, drillhole planning, stereographic analysis, XRF geochemical interpretation and database management."
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -891,6 +959,55 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.6);
         }
 
+        /* ---------- COOKIE CONSENT ---------- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            background: var(--bedrock);
+            border-top: 1px solid var(--hairline);
+            padding: 18px var(--edge);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+        }
+        .cookie-banner.hidden { display: none; }
+        .cookie-text {
+            font-size: 0.85rem;
+            color: var(--quartz-dim);
+            max-width: 60ch;
+        }
+        .cookie-text a { color: var(--ochre); }
+        .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+        .btn-cookie-accept {
+            background: var(--ochre);
+            color: #1a1206;
+            border: none;
+            padding: 9px 20px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.84rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .btn-cookie-reject {
+            background: transparent;
+            color: var(--quartz-dim);
+            border: 1px solid var(--hairline);
+            padding: 9px 20px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.84rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 880px) {
             .nav-links { display: none; }
@@ -1618,6 +1735,37 @@
                 if (e.target === downloadModal) downloadModal.style.display = 'none';
             });
         });
+    </script>
+    <div id="cookieBanner" class="cookie-banner">
+        <p class="cookie-text">
+            <span class="lang-en">This website uses cookies and Google AdSense to serve ads. By continuing, you agree to our <a href="privacy.html">Privacy Policy</a> and the use of cookies for analytics and advertising.</span>
+            <span class="lang-fr">Ce site utilise des cookies et Google AdSense pour diffuser des annonces. En continuant, vous acceptez notre <a href="privacy.html">Politique de confidentialité</a> et l'utilisation de cookies à des fins d'analyse et de publicité.</span>
+        </p>
+        <div class="cookie-actions">
+            <button class="btn-cookie-accept" onclick="acceptCookies()">
+                <span class="lang-en">Accept</span><span class="lang-fr">Accepter</span>
+            </button>
+            <button class="btn-cookie-reject" onclick="rejectCookies()">
+                <span class="lang-en">Reject</span><span class="lang-fr">Refuser</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookieBanner').classList.add('hidden');
+            try { localStorage.setItem('cookie-consent', 'accepted'); } catch(e) {}
+        }
+        function rejectCookies() {
+            document.getElementById('cookieBanner').classList.add('hidden');
+            try { localStorage.setItem('cookie-consent', 'rejected'); } catch(e) {}
+        }
+        (function() {
+            try {
+                var consent = localStorage.getItem('cookie-consent');
+                if (consent) document.getElementById('cookieBanner').classList.add('hidden');
+            } catch(e) {}
+        })();
     </script>
 </body>
 </html>
