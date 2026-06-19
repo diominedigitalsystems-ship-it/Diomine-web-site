@@ -514,6 +514,223 @@
         .modal-content p { color: var(--quartz-dim); margin: 0; }
         .modal-buttons { margin-top: 26px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+        /* ---------- TRAINING ANNOUNCEMENT ---------- */
+        .training-announce {
+            position: relative;
+            border: 1px solid rgba(79, 148, 104, 0.4);
+            border-radius: 14px;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(79, 148, 104, 0.12), transparent 55%),
+                radial-gradient(ellipse at 80% 20%, rgba(201, 162, 39, 0.1), transparent 50%),
+                var(--bedrock);
+        }
+        .training-announce::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--verdite), var(--gold-vein), var(--ochre));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .training-header {
+            padding: clamp(32px, 5vw, 52px) clamp(28px, 5vw, 48px) 0;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 28px;
+            align-items: start;
+        }
+        .training-badge {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #1a1206;
+            background: linear-gradient(135deg, var(--verdite), #6ab87f);
+            padding: 5px 14px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+        .training-header h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            line-height: 1.12;
+        }
+        .training-header h2 em {
+            font-style: italic;
+            color: var(--verdite);
+        }
+        .training-tagline {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            color: var(--gold-vein);
+            margin-top: 10px;
+        }
+        .training-intro {
+            color: var(--quartz-dim);
+            margin-top: 14px;
+            max-width: 56ch;
+        }
+        .training-flyer-thumb {
+            width: clamp(120px, 14vw, 180px);
+            border-radius: 8px;
+            border: 1px solid var(--hairline);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+        .training-flyer-thumb:hover {
+            transform: scale(1.04) rotate(-1deg);
+            box-shadow: 0 12px 40px rgba(79, 148, 104, 0.25);
+        }
+        .training-body {
+            padding: clamp(24px, 4vw, 40px) clamp(28px, 5vw, 48px);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: clamp(24px, 4vw, 40px);
+        }
+        .curriculum-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 20px;
+        }
+        .curriculum-list li {
+            font-size: 0.84rem;
+            color: var(--quartz-dim);
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 4px 0;
+        }
+        .step-num {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            color: var(--verdite);
+            background: rgba(79, 148, 104, 0.12);
+            border-radius: 4px;
+            min-width: 22px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .curriculum-footer {
+            grid-column: 1 / -1;
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            color: var(--gold-vein);
+            margin-top: 8px;
+            letter-spacing: 0.04em;
+        }
+        .why-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .why-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .why-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: rgba(79, 148, 104, 0.1);
+            border: 1px solid rgba(79, 148, 104, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+        .why-item h4 {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--quartz);
+            margin: 0 0 3px;
+        }
+        .why-item p {
+            font-size: 0.82rem;
+            color: var(--quartz-dim);
+            margin: 0;
+        }
+        .tools-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--hairline);
+        }
+        .tools-row span {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            color: var(--quartz-dim);
+            text-transform: uppercase;
+        }
+        .tool-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.03em;
+            color: var(--quartz);
+            border: 1px solid var(--hairline);
+            border-radius: 6px;
+            padding: 5px 12px;
+        }
+        .training-cta {
+            padding: 0 clamp(28px, 5vw, 48px) clamp(28px, 4vw, 44px);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .btn-verdite {
+            background: var(--verdite);
+            color: #fff;
+            font-weight: 600;
+        }
+        .btn-verdite:hover {
+            background: #5ca876;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(79,148,104,0.25);
+        }
+        .training-cta .contact-line {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            color: var(--quartz-dim);
+        }
+        .flyer-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 7, 5, 0.88);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(6px);
+            padding: 24px;
+            cursor: zoom-out;
+        }
+        .flyer-modal img {
+            max-height: 90vh;
+            max-width: 90vw;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 880px) {
             .nav-links { display: none; }
@@ -543,6 +760,10 @@
             .report, .report:nth-of-type(even) { grid-template-columns: 1fr; }
             .report:nth-of-type(even) .report-media { order: 0; }
             .release-banner { grid-template-columns: 1fr; text-align: left; }
+            .training-header { grid-template-columns: 1fr; }
+            .training-flyer-thumb { display: none; }
+            .training-body { grid-template-columns: 1fr; }
+            .curriculum-list { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -566,7 +787,8 @@
 
             <ul class="nav-links">
                 <li><a href="#about" class="lang-en">Company</a><a href="#about" class="lang-fr">Société</a></li>
-                <li><a href="#article" class="lang-en">Formations</a><a href="#article" class="lang-fr">Formations</a></li>
+                <li><a href="#training" class="lang-en" style="color:var(--verdite)">Training</a><a href="#training" class="lang-fr" style="color:var(--verdite)">Formation</a></li>
+                <li><a href="#article" class="lang-en">Demos</a><a href="#article" class="lang-fr">Démos</a></li>
                 <li><a href="#downloads" class="lang-en">Solutions</a><a href="#downloads" class="lang-fr">Solutions</a></li>
                 <li><a href="expertise.html" class="lang-en">Expertise</a><a href="expertise.html" class="lang-fr">Expertise</a></li>
                 <li><a href="contact.html" class="lang-en">Contact</a><a href="contact.html" class="lang-fr">Contact</a></li>
@@ -662,6 +884,126 @@
                 <h3 class="lang-fr">Vos données restent les vôtres</h3>
                 <p class="lang-en">Diomine Digital Systems never accesses your data when you use our open-source software — it stays in your own working environment, and the only way we ever see it is if you choose to send it to us yourself. This release shows how Diomine DH Auditor 2026.3 contributes to the GIS, mining and geology industry.</p>
                 <p class="lang-fr">Diomine Digital Systems n'a jamais accès à vos données lorsque vous utilisez nos logiciels open source — elles restent dans votre propre environnement de travail, et la seule façon que nous les voyions est si vous choisissez vous-même de nous les envoyer. Cette version montre comment Diomine DH Auditor 2026.3 contribue à l'industrie du SIG, des mines et de la géologie.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section reveal" id="training">
+        <div class="training-announce">
+            <div class="training-header">
+                <div>
+                    <span class="training-badge lang-en">Enrollment open</span>
+                    <span class="training-badge lang-fr">Inscriptions ouvertes</span>
+                    <h2 class="lang-en">Resource Modeling<br>& <em>Estimation</em> Training</h2>
+                    <h2 class="lang-fr">Formations en Modélisation<br>& <em>Estimations</em> de Ressources</h2>
+                    <p class="training-tagline lang-en">Master every step. Estimate with confidence. At your own pace.</p>
+                    <p class="training-tagline lang-fr">Maîtrisez chaque étape. Estimez avec confiance. À votre rythme.</p>
+                    <p class="training-intro lang-en">A 100% professional training — no empty theory, no wasted time. You work at your own pace on real industrial data. You choose your modeling software, and Diomine DH Auditor 2026.3 is included as a mandatory support tool throughout the program.</p>
+                    <p class="training-intro lang-fr">Une formation 100% professionnelle — pas de théorie vide, pas de temps perdu. Vous avancez à votre rythme sur des données industrielles réelles. Vous choisissez votre logiciel de modélisation, et Diomine DH Auditor 2026.3 est imposé comme outil de support tout au long du programme.</p>
+                </div>
+                <img src="formation-flyer.jpg" alt="Formation flyer" class="training-flyer-thumb" onclick="document.getElementById('flyerModal').style.display='flex'">
+            </div>
+
+            <div class="training-body">
+                <div>
+                    <p class="eyebrow lang-en" style="margin-bottom:14px">Program · 18 modules</p>
+                    <p class="eyebrow lang-fr" style="margin-bottom:14px">Programme · 18 modules</p>
+                    <ol class="curriculum-list">
+                        <li><span class="step-num">01</span> Création de base de données</li>
+                        <li><span class="step-num">02</span> Affichage des forages et assays</li>
+                        <li><span class="step-num">03</span> Création de composite</li>
+                        <li><span class="step-num">04</span> Digitalisation de la minéralisation</li>
+                        <li><span class="step-num">05</span> Digitalisation de la géologie</li>
+                        <li><span class="step-num">06</span> Création de modèle géologique</li>
+                        <li><span class="step-num">07</span> Digitalisation du profil d'altération</li>
+                        <li><span class="step-num">08</span> Création de modèle de regolith</li>
+                        <li><span class="step-num">09</span> Capping ou plafonnement</li>
+                        <li><span class="step-num">10</span> Assignation de domaine</li>
+                        <li><span class="step-num">11</span> Assignation de densité</li>
+                        <li><span class="step-num">12</span> Analyse de variogramme</li>
+                        <li><span class="step-num">13</span> Création de block modèle</li>
+                        <li><span class="step-num">14</span> Création d'attribut</li>
+                        <li><span class="step-num">15</span> Création de scripts</li>
+                        <li><span class="step-num">16</span> Estimations de ressources (Kriging &amp; IDW)</li>
+                        <li><span class="step-num">17</span> Block model reporting</li>
+                        <li><span class="step-num">18</span> Swath plotting</li>
+                        <li class="curriculum-footer">→ Certification Diomine Digital Systems</li>
+                    </ol>
+                </div>
+
+                <div class="why-grid">
+                    <p class="eyebrow lang-en">Why choose us</p>
+                    <p class="eyebrow lang-fr">Pourquoi nous choisir</p>
+
+                    <div class="why-item">
+                        <div class="why-icon">⛏️</div>
+                        <div>
+                            <h4 class="lang-en">100% hands-on, zero filler</h4>
+                            <h4 class="lang-fr">100% pratique, zéro remplissage</h4>
+                            <p class="lang-en">No empty lectures — every session uses real industrial data and real workflows.</p>
+                            <p class="lang-fr">Pas de cours théoriques vides — chaque session utilise des données et des workflows industriels réels.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">🕐</div>
+                        <div>
+                            <h4 class="lang-en">At the learner's own pace</h4>
+                            <h4 class="lang-fr">Au rythme de l'apprenant</h4>
+                            <p class="lang-en">No fixed schedule — you progress based on your availability and your mastery of each module.</p>
+                            <p class="lang-fr">Pas d'agenda imposé — vous avancez selon votre disponibilité et votre maîtrise de chaque module.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">📜</div>
+                        <div>
+                            <h4 class="lang-en">DDS Certificate</h4>
+                            <h4 class="lang-fr">Certificat Diomine Digital Systems</h4>
+                            <p class="lang-en">Official recognition of your skills upon completion.</p>
+                            <p class="lang-fr">Reconnaissance de vos compétences à l'issue de la formation.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">👥</div>
+                        <div>
+                            <h4 class="lang-en">Expert mentoring</h4>
+                            <h4 class="lang-fr">Encadrement par des experts</h4>
+                            <p class="lang-en">Trainers experienced in the mining industry.</p>
+                            <p class="lang-fr">Formateurs expérimentés dans l'industrie minière.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">📐</div>
+                        <div>
+                            <h4 class="lang-en">Solid competencies</h4>
+                            <h4 class="lang-fr">Des compétences solides</h4>
+                            <p class="lang-en">For reliable decisions and lasting results.</p>
+                            <p class="lang-fr">Pour des décisions fiables et des résultats durables.</p>
+                        </div>
+                    </div>
+
+                    <div class="tools-row" style="flex-wrap:wrap;">
+                        <span>Tools</span>
+                        <span class="tool-tag">Datamine Studio</span>
+                        <span class="tool-tag">Micromine</span>
+                        <span class="tool-tag">Surpac</span>
+                        <span class="tool-tag">Vulcan</span>
+                        <span class="tool-tag">Leapfrog</span>
+                    </div>
+                    <p style="font-size:0.78rem;color:var(--quartz-dim);margin-top:12px;font-style:italic;">
+                        <span class="lang-en">☝ The learner chooses <strong style="color:var(--quartz)">one software</strong> for the entire training. <strong style="color:var(--gold-vein)">Diomine DH Auditor 2026.3</strong> is mandatory as a support tool for all participants.</span>
+                        <span class="lang-fr">☝ L'apprenant choisit <strong style="color:var(--quartz)">un seul logiciel</strong> pour toute la formation. <strong style="color:var(--gold-vein)">Diomine DH Auditor 2026.3</strong> est imposé comme outil de support pour tous les participants.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="training-cta">
+                <a href="https://wa.me/2250545323078" class="btn btn-verdite" target="_blank">
+                    <span class="lang-en">Enroll via WhatsApp</span>
+                    <span class="lang-fr">S'inscrire via WhatsApp</span>
+                </a>
+                <a href="contact.html" class="btn btn-line lang-en">Contact us</a>
+                <a href="contact.html" class="btn btn-line lang-fr">Nous contacter</a>
+                <span class="contact-line">📞 +225 0545323078</span>
             </div>
         </div>
     </section>
@@ -874,6 +1216,10 @@
         </div>
         <p class="footer-coords">06°48'N 05°16'W · © 2026 DIOMINE DIGITAL SYSTEMS</p>
     </footer>
+
+    <div id="flyerModal" class="flyer-modal" onclick="this.style.display='none'">
+        <img src="formation-flyer.jpg" alt="Formation Diomine Digital Systems">
+    </div>
 
     <div id="downloadModalOverlay" class="modal-overlay">
         <div class="modal-content">
