@@ -4,32 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Diomine Digital Systems</title>
+    <link rel="icon" type="image/png" href="diomine logo.png">
+    <meta name="description" content="Privacy Policy for Diomine Digital Systems website and software products.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://diominedigitalsystems.com/privacy.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --ci-orange: #FF8200; --dark-bg: #121212; }
-        body { font-family: sans-serif; background: var(--dark-bg); color: white; line-height: 1.6; padding: 40px 10%; }
-        h1, h2 { color: var(--ci-orange); text-transform: uppercase; }
-        .back-home { display: inline-block; margin-bottom: 20px; color: white; text-decoration: none; font-weight: bold; }
-        .content-box { background: #1e1e1e; padding: 30px; border-radius: 15px; border-left: 5px solid var(--ci-orange); }
+        :root {
+            --ink: #15100c;
+            --bedrock: #211710;
+            --hairline: #3a2c1c;
+            --quartz: #f3ecdf;
+            --quartz-dim: #c2b8a4;
+            --ochre: #d9802c;
+            --verdite: #4f9468;
+            --gold-vein: #c9a227;
+            --font-display: 'Fraunces', serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            --edge: clamp(24px, 5vw, 64px);
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--ink);
+            color: var(--quartz);
+            margin: 0;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--ochre); }
+        .lang-fr, [data-lang="en"] .lang-fr { display: none; }
+        [data-lang="fr"] .lang-en { display: none; }
+        .nav-shell {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(21, 16, 12, 0.86);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--hairline);
+        }
+        nav.primary {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px var(--edge); max-width: 1180px; margin: 0 auto; gap: 24px;
+        }
+        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--quartz); }
+        .brand img { width: 30px; height: 30px; }
+        .brand-name { display: flex; flex-direction: column; line-height: 1.15; }
+        .brand-main { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; font-style: italic; }
+        .brand-sub { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ochre); }
+        .lang-toggle {
+            background: transparent; border: 1px solid var(--hairline); color: var(--quartz-dim);
+            font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em;
+            padding: 6px 12px; border-radius: 30px; cursor: pointer;
+        }
+        .wrap { max-width: 800px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--edge); }
+        .eyebrow {
+            font-family: var(--font-mono); font-size: 0.72rem;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--ochre);
+        }
+        h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 600; margin: 12px 0 28px; line-height: 1.15; }
+        h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--gold-vein); margin: 36px 0 14px; }
+        p, li { color: var(--quartz-dim); text-align: justify; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .updated { font-family: var(--font-mono); font-size: 0.78rem; color: var(--quartz-dim); margin-bottom: 28px; }
+        footer {
+            border-top: 1px solid var(--hairline);
+            padding: 30px var(--edge);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--quartz-dim);
+        }
+        footer a { color: var(--quartz-dim); text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: var(--ochre); }
     </style>
 </head>
-<body>
-    <a href="index.html" class="back-home">← Back to Home</a>
-    <div class="content-box">
-        <h1>Privacy Policy</h1>
-        <p>Last updated: February 2026</p>
-        
-        <h2>1. Information We Collect</h2>
-        <p>Diomine Digital Systems does not collect personal data from users of our mining software (Diomine DH Auditor 2026.1.2, Diomine MRN 2026.1.2) unless explicitly provided via email contact.</p>
-        
-        <h2>2. Google AdSense</h2>
-        <p>We use Google AdSense to serve ads. Google uses cookies to serve ads based on a user's prior visits to your website or other websites.</p>
-        
-        <h2>3. Software Safety</h2>
-        <p>Our .EXE setups are tools for geological tasks and do not contain malware. Users are responsible for their own data management.</p>
-        
-        <h2>4. Contact</h2>
-        <p>For any questions, contact us at: Email : diominedigitalsystems@gmail.com Whatsapp :(225) 0718317798 </p>
+<body data-lang="en">
+    <div class="nav-shell">
+        <nav class="primary">
+            <a href="index.html" class="brand">
+                <img src="diomine logo.png" alt="Diomine Digital Systems">
+                <span class="brand-name">
+                    <span class="brand-main">Diomine</span>
+                    <span class="brand-sub">Digital&nbsp;Systems</span>
+                </span>
+            </a>
+            <button class="lang-toggle" onclick="toggleLang()">EN / FR</button>
+        </nav>
     </div>
+
+    <div class="wrap">
+        <p class="eyebrow lang-en">Legal</p>
+        <p class="eyebrow lang-fr">Mentions légales</p>
+
+        <h1 class="lang-en">Privacy Policy</h1>
+        <h1 class="lang-fr">Politique de Confidentialité</h1>
+
+        <p class="updated lang-en">Last updated: June 2026</p>
+        <p class="updated lang-fr">Dernière mise à jour : juin 2026</p>
+
+        <!-- EN -->
+        <div class="lang-en">
+            <p>Diomine Digital Systems ("we", "our", or "us") operates the website <strong>diominedigitalsystems.com</strong>. This Privacy Policy explains how we collect, use, and protect information when you visit our website.</p>
+
+            <h2>1. Information We Collect</h2>
+            <p>We do not collect personal information unless you voluntarily submit it (for example, through our contact form or by emailing us). Our website may collect non-personal information automatically, including browser type, operating system, referring URL, pages visited, and time spent on pages.</p>
+
+            <h2>2. Google AdSense & Advertising</h2>
+            <p>We use <strong>Google AdSense</strong>, a third-party advertising service provided by Google LLC, to display advertisements on our website. Google AdSense may use cookies and web beacons to serve ads based on your prior visits to this website and other websites on the internet.</p>
+            <p>Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the internet. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>. Alternatively, you may opt out of third-party cookies by visiting the <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">Network Advertising Initiative opt-out page</a>.</p>
+            <p>For more information about how Google collects and uses data, please review the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+
+            <h2>3. Cookies</h2>
+            <p>Our website uses cookies for the following purposes:</p>
+            <ul>
+                <li><strong>Advertising cookies</strong> — placed by Google AdSense to serve relevant ads and measure ad performance.</li>
+                <li><strong>Analytics cookies</strong> — to understand how visitors interact with our website so we can improve it.</li>
+                <li><strong>Functional cookies</strong> — to remember your preferences such as language settings.</li>
+            </ul>
+            <p>You can control or disable cookies through your browser settings. Note that disabling cookies may affect the functionality of some features on our website.</p>
+
+            <h2>4. Third-Party Links</h2>
+            <p>Our website may contain links to third-party websites such as GitHub, PayPal, Ko-fi, YouTube, and Google Maps. We are not responsible for the privacy practices or content of these external sites. We encourage you to read their respective privacy policies.</p>
+
+            <h2>5. Software & Data Privacy</h2>
+            <p>Diomine Digital Systems software products (Diomine DH Auditor, Diomine MRN) operate entirely on your local machine. <strong>We do not collect, transmit, or have access to any data you process using our software.</strong> Your data stays in your own working environment. The only circumstance in which we would see your data is if you choose to send it to us yourself.</p>
+
+            <h2>6. Children's Privacy</h2>
+            <p>Our website and services are not directed to individuals under the age of 13. We do not knowingly collect personal information from children.</p>
+
+            <h2>7. Data Security</h2>
+            <p>We take reasonable measures to protect the information collected through our website. However, no method of internet transmission or electronic storage is 100% secure.</p>
+
+            <h2>8. Your Rights</h2>
+            <p>Depending on your location, you may have rights regarding your personal data, including the right to access, correct, delete, or restrict the processing of your data. To exercise any of these rights, please contact us.</p>
+
+            <h2>9. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+
+            <h2>10. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> diominedigitalsystems@gmail.com</li>
+                <li><strong>WhatsApp:</strong> +225 0545323078</li>
+                <li><strong>Website:</strong> <a href="https://diominedigitalsystems.com">diominedigitalsystems.com</a></li>
+            </ul>
+        </div>
+
+        <!-- FR -->
+        <div class="lang-fr">
+            <p>Diomine Digital Systems (« nous », « notre ») exploite le site web <strong>diominedigitalsystems.com</strong>. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons les informations lorsque vous visitez notre site.</p>
+
+            <h2>1. Informations collectées</h2>
+            <p>Nous ne collectons aucune information personnelle à moins que vous ne la fournissiez volontairement (par exemple, via notre formulaire de contact ou par e-mail). Notre site peut collecter automatiquement des informations non personnelles, notamment le type de navigateur, le système d'exploitation, l'URL de provenance, les pages visitées et le temps passé sur les pages.</p>
+
+            <h2>2. Google AdSense et Publicité</h2>
+            <p>Nous utilisons <strong>Google AdSense</strong>, un service publicitaire tiers fourni par Google LLC, pour afficher des annonces sur notre site web. Google AdSense peut utiliser des cookies et des balises web pour diffuser des annonces basées sur vos visites précédentes sur ce site et sur d'autres sites internet.</p>
+            <p>L'utilisation de cookies publicitaires par Google permet à Google et à ses partenaires de diffuser des annonces basées sur votre visite sur notre site et/ou d'autres sites internet. Vous pouvez désactiver la publicité personnalisée en visitant les <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Paramètres des annonces Google</a>. Vous pouvez également refuser les cookies tiers en visitant la <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">page de désactivation du Network Advertising Initiative</a>.</p>
+            <p>Pour plus d'informations sur la façon dont Google collecte et utilise les données, veuillez consulter la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique de confidentialité de Google</a>.</p>
+
+            <h2>3. Cookies</h2>
+            <p>Notre site utilise des cookies aux fins suivantes :</p>
+            <ul>
+                <li><strong>Cookies publicitaires</strong> — placés par Google AdSense pour diffuser des annonces pertinentes et mesurer les performances publicitaires.</li>
+                <li><strong>Cookies analytiques</strong> — pour comprendre comment les visiteurs interagissent avec notre site afin de l'améliorer.</li>
+                <li><strong>Cookies fonctionnels</strong> — pour mémoriser vos préférences telles que les paramètres de langue.</li>
+            </ul>
+            <p>Vous pouvez contrôler ou désactiver les cookies via les paramètres de votre navigateur. Notez que la désactivation des cookies peut affecter le fonctionnement de certaines fonctionnalités de notre site.</p>
+
+            <h2>4. Liens vers des tiers</h2>
+            <p>Notre site peut contenir des liens vers des sites tiers tels que GitHub, PayPal, Ko-fi, YouTube et Google Maps. Nous ne sommes pas responsables des pratiques de confidentialité ou du contenu de ces sites externes. Nous vous encourageons à lire leurs politiques de confidentialité respectives.</p>
+
+            <h2>5. Logiciels et Confidentialité des données</h2>
+            <p>Les logiciels de Diomine Digital Systems (Diomine DH Auditor, Diomine MRN) fonctionnent entièrement sur votre machine locale. <strong>Nous ne collectons, ne transmettons et n'avons accès à aucune donnée que vous traitez à l'aide de nos logiciels.</strong> Vos données restent dans votre propre environnement de travail. La seule circonstance dans laquelle nous verrions vos données est si vous choisissez de nous les envoyer vous-même.</p>
+
+            <h2>6. Vie privée des enfants</h2>
+            <p>Notre site et nos services ne sont pas destinés aux personnes de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants.</p>
+
+            <h2>7. Sécurité des données</h2>
+            <p>Nous prenons des mesures raisonnables pour protéger les informations collectées via notre site. Cependant, aucune méthode de transmission sur internet ou de stockage électronique n'est sûre à 100%.</p>
+
+            <h2>8. Vos droits</h2>
+            <p>Selon votre localisation, vous pouvez avoir des droits concernant vos données personnelles, y compris le droit d'accéder, de corriger, de supprimer ou de limiter le traitement de vos données. Pour exercer ces droits, veuillez nous contacter.</p>
+
+            <h2>9. Modifications de cette politique</h2>
+            <p>Nous pouvons mettre à jour cette Politique de Confidentialité de temps en temps. Toute modification sera publiée sur cette page avec une date de révision mise à jour.</p>
+
+            <h2>10. Nous contacter</h2>
+            <p>Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter :</p>
+            <ul>
+                <li><strong>E-mail :</strong> diominedigitalsystems@gmail.com</li>
+                <li><strong>WhatsApp :</strong> +225 0545323078</li>
+                <li><strong>Site web :</strong> <a href="https://diominedigitalsystems.com">diominedigitalsystems.com</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="expertise.html">Expertise</a>
+        <p style="margin-top:16px;">© 2026 Diomine Digital Systems</p>
+    </footer>
+
+    <script>
+        function toggleLang() {
+            const b = document.body;
+            b.setAttribute('data-lang', b.getAttribute('data-lang') === 'en' ? 'fr' : 'en');
+        }
+    </script>
 </body>
 </html>
-
