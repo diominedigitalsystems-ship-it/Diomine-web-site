@@ -961,6 +961,36 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.6);
         }
 
+        /* ---------- TRAINING CATALOG ---------- */
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 14px; margin-bottom: 20px; }
+        .catalog-card { background: rgba(255,255,255,0.02); border: 1px solid var(--hairline); border-radius: 10px; padding: 20px; cursor: pointer; transition: 0.2s; }
+        .catalog-card:hover { border-color: var(--ochre-soft); transform: translateY(-2px); }
+        .catalog-card.active { border-color: var(--verdite); }
+        .catalog-card-num { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--verdite); margin-bottom: 6px; }
+        .catalog-card h4 { font-family: var(--font-display); font-size: 0.98rem; font-weight: 600; color: var(--quartz); margin: 0 0 6px; line-height: 1.25; }
+        .catalog-card-tagline { font-style: italic; font-size: 0.76rem; color: var(--ochre); margin-bottom: 8px; }
+        .catalog-card-meta { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+        .meta-pill { font-family: var(--font-mono); font-size: 0.6rem; color: var(--quartz-dim); border: 1px solid var(--hairline); border-radius: 4px; padding: 2px 7px; }
+        .catalog-card-price { font-family: var(--font-mono); font-size: 0.8rem; color: var(--gold-vein); font-weight: 500; }
+        .catalog-card-price small { font-size: 0.66rem; color: var(--quartz-dim); font-weight: 400; }
+        .catalog-detail { display: none; border: 1px solid var(--hairline); border-radius: 10px; padding: clamp(18px,3vw,28px); margin-bottom: 16px; background: rgba(255,255,255,0.015); }
+        .catalog-detail.active { display: block; }
+        .catalog-detail-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--hairline); }
+        .catalog-detail-head h3 { font-size: 1.1rem; margin: 0 0 4px; }
+        .catalog-detail-head p { color: var(--quartz-dim); margin: 0; max-width: 56ch; font-size: 0.88rem; }
+        .catalog-detail-close { background: none; border: 1px solid var(--hairline); color: var(--quartz-dim); border-radius: 50%; width: 28px; height: 28px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .catalog-parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+        .catalog-part { padding: 12px; border: 1px solid var(--hairline); border-radius: 8px; }
+        .catalog-part-title { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--verdite); margin-bottom: 6px; }
+        .catalog-mod-list { list-style: none; padding: 0; margin: 0; }
+        .catalog-mod-list li { font-size: 0.76rem; color: var(--quartz-dim); display: flex; align-items: baseline; gap: 6px; padding: 2px 0; }
+        .pack-banner { border: 2px solid var(--gold-vein); border-radius: 10px; padding: clamp(16px,3vw,24px); background: linear-gradient(135deg,rgba(201,162,39,0.08),rgba(79,148,104,0.05)); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
+        .pack-banner h3 { font-size: 1.05rem; margin: 0 0 4px; }
+        .pack-banner p { color: var(--quartz-dim); font-size: 0.85rem; margin: 0; }
+        .practical-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 12px; margin-top: 14px; }
+        .practical-item { font-size: 0.82rem; color: var(--quartz-dim); }
+        .practical-item strong { display: block; color: var(--quartz); font-size: 0.76rem; font-family: var(--font-mono); letter-spacing: 0.03em; margin-bottom: 2px; }
+
         /* ---------- INSTALL VIDEO BANNER ---------- */
         .install-banner {
             display: grid;
@@ -1380,258 +1410,265 @@
                 <div>
                     <span class="training-badge lang-en">Enrollment open</span>
                     <span class="training-badge lang-fr">Inscriptions ouvertes</span>
-                    <h2 class="lang-en">Professional Training<br>on <em>Diomine DH Auditor 2026.3.1</em></h2>
-                    <h2 class="lang-fr">Formations Professionnelles<br>sur <em>Diomine DH Auditor 2026.3.1</em></h2>
-                    <p class="training-tagline lang-en">Master every step. At your own pace. Zero empty theory.</p>
-                    <p class="training-tagline lang-fr">Maîtrisez chaque étape. À votre rythme. Zéro théorie vide.</p>
-                    <p class="training-intro lang-en">100% professional, hands-on training on real industrial data. You progress at your own pace. Choose your package below — Diomine DH Auditor 2026.3.1 is the mandatory support tool for all programs.</p>
-                    <p class="training-intro lang-fr">Formation 100% professionnelle et pratique sur des données industrielles réelles. Vous avancez à votre rythme. Choisissez votre package ci-dessous — Diomine DH Auditor 2026.3.1 est l'outil de support obligatoire pour tous les programmes.</p>
+                    <h2 class="lang-en">Training Catalog<br><em>Diomine DH Auditor &amp; QGIS</em></h2>
+                    <h2 class="lang-fr">Catalogue de Formations<br><em>Diomine DH Auditor &amp; QGIS</em></h2>
+                    <p class="training-tagline lang-en">5 certifying courses · 50 modules · At your own pace</p>
+                    <p class="training-tagline lang-fr">5 formations certifiantes · 50 modules · À votre rythme</p>
+                    <p class="training-intro lang-en">100% hands-on, zero empty theory. Five complementary courses designed exclusively for geology and mining exploration professionals, covering mapping, structural analysis, trench interpretation, geochemical targeting and drillhole data processing.</p>
+                    <p class="training-intro lang-fr">100% pratique, zéro théorie vide. Cinq formations complémentaires conçues exclusivement pour les professionnels de la géologie et de l'exploration minière, couvrant la cartographie, l'analyse structurale, l'interprétation des tranchées, le ciblage géochimique et le traitement des données de forages.</p>
                 </div>
                 <img src="Diomine-2026-3-1-icon.png" alt="Diomine DH Auditor 2026.3.1" class="training-flyer-thumb" onclick="document.getElementById('flyerModal').style.display='flex'">
             </div>
 
-            <div style="padding: 0 clamp(28px, 5vw, 48px);">
-                <div class="training-tabs">
-                    <button class="training-tab active" onclick="switchTrainingTab(0)">
-                        <span class="lang-en">🔷 Exploration Geology</span>
-                        <span class="lang-fr">🔷 Géologie d'Exploration</span>
-                    </button>
-                    <button class="training-tab" onclick="switchTrainingTab(1)">
-                        <span class="lang-en">🔶 Resource Modeling &amp; Estimation</span>
-                        <span class="lang-fr">🔶 Modélisation &amp; Estimation de Ressources</span>
-                    </button>
-                </div>
-            </div>
+            <div style="padding: 0 clamp(28px,5vw,48px);">
 
-            <!-- PANEL 0: EXPLORATION GEOLOGY -->
-            <div class="training-panel active" id="trainPanel0">
-                <div class="training-body" style="grid-template-columns:1fr;">
+                <!-- PACK COMPLET BANNER -->
+                <div class="pack-banner">
                     <div>
-                        <p class="eyebrow lang-en" style="margin-bottom:14px">Exploration Geology Package · 41 modules · 4 parts</p>
-                        <p class="eyebrow lang-fr" style="margin-bottom:14px">Package Géologie d'Exploration · 41 modules · 4 parties</p>
+                        <h3 class="lang-en">🎓 Complete Pack — 5 courses, 50 modules</h3>
+                        <h3 class="lang-fr">🎓 Pack Complet — 5 formations, 50 modules</h3>
+                        <p class="lang-en">All five courses + Diomine Digital Systems Certificate. </p>
+                        <p class="lang-fr">Les cinq formations + Certificat Diomine Digital Systems. </p>
+                    </div>
+                    </div>
+                </div>
 
-                        <div class="explo-parts">
-                            <div class="explo-part">
-                                <p class="explo-part-title"><span class="part-icon">🗺️</span> <span class="lang-en">Part 1 — Mapping &amp; GIS</span><span class="lang-fr">Partie 1 — Cartographie &amp; SIG</span></p>
-                                <ol class="explo-list lang-en">
-                                    <li><span class="step-num">01</span> Import, display &amp; export: Excel, CSV, GPX, Raster, Shapefile, String, DXF</li>
-                                    <li><span class="step-num">02</span> Map georeferencing</li>
-                                    <li><span class="step-num">03</span> Vector creation &amp; map digitizing</li>
-                                    <li><span class="step-num">04</span> Automatic hydrographic network creation</li>
-                                    <li><span class="step-num">05</span> Geolocated import of outcrop photographs</li>
-                                    <li><span class="step-num">06</span> Structural measurement import &amp; display</li>
-                                    <li><span class="step-num">07</span> Map layout &amp; export</li>
-                                </ol>
-                                <ol class="explo-list lang-fr">
-                                    <li><span class="step-num">01</span> Importation, affichage et export : Excel, CSV, GPX, Raster, Shapefile, String, DXF</li>
-                                    <li><span class="step-num">02</span> Géoréférencement d'une carte</li>
-                                    <li><span class="step-num">03</span> Création de vecteurs et digitalisation de cartes</li>
-                                    <li><span class="step-num">04</span> Création automatique de réseau hydrographique</li>
-                                    <li><span class="step-num">05</span> Importation géolocalisée de photos d'affleurement</li>
-                                    <li><span class="step-num">06</span> Importation et affichage de mesures structurales</li>
-                                    <li><span class="step-num">07</span> Mise en page et export d'une carte</li>
-                                </ol>
-                            </div>
-
-                            <div class="explo-part">
-                                <p class="explo-part-title"><span class="part-icon">⛏️</span> <span class="lang-en">Part 2 — Exploration Trenches</span><span class="lang-fr">Partie 2 — Tranchées d'Exploration</span></p>
-                                <ol class="explo-list lang-en">
-                                    <li><span class="step-num">08</span> Import &amp; display of an exploration trench</li>
-                                    <li><span class="step-num">09</span> Trench face selection for display</li>
-                                    <li><span class="step-num">10</span> Sample creation &amp; display on the trench</li>
-                                    <li><span class="step-num">11</span> Sampling sheet creation, QAQC &amp; export to Excel/CSV</li>
-                                    <li><span class="step-num">13</span> Vector creation, geology interpretation &amp; digitizing on trench section</li>
-                                    <li><span class="step-num">14</span> Structural measurements display on trench section</li>
-                                    <li><span class="step-num">15</span> Layout &amp; export of trench section (PNG &amp; PDF)</li>
-                                </ol>
-                                <ol class="explo-list lang-fr">
-                                    <li><span class="step-num">08</span> Importation et affichage d'une tranchée d'exploration</li>
-                                    <li><span class="step-num">09</span> Choix de la face de la tranchée à afficher</li>
-                                    <li><span class="step-num">10</span> Création et affichage d'échantillons sur la tranchée</li>
-                                    <li><span class="step-num">11</span> Création de fiche d'échantillonnage, QAQC et export Excel/CSV</li>
-                                    <li><span class="step-num">13</span> Création de vecteurs, interprétation et digitalisation de la géologie sur la section</li>
-                                    <li><span class="step-num">14</span> Affichage des mesures structurales sur la section de la tranchée</li>
-                                    <li><span class="step-num">15</span> Mise en page et export de la section (PNG et PDF)</li>
-                                </ol>
-                            </div>
-
-                            <div class="explo-part">
-                                <p class="explo-part-title"><span class="part-icon">📐</span> <span class="lang-en">Part 3 — Structural Analysis</span><span class="lang-fr">Partie 3 — Analyse Structurale</span></p>
-                                <ol class="explo-list lang-en">
-                                    <li><span class="step-num">16</span> Structural database import</li>
-                                    <li><span class="step-num">17</span> Cyclographic &amp; polar display on stereonet</li>
-                                    <li><span class="step-num">18</span> Filter by name, type, project, date, year &amp; stereonet display</li>
-                                    <li><span class="step-num">19</span> Cyclographic interpretation &amp; drill azimuth suggestion</li>
-                                    <li><span class="step-num">20</span> Mean plane display &amp; export by structure family</li>
-                                    <li><span class="step-num">21</span> Polar selection &amp; structure family grouping</li>
-                                    <li><span class="step-num">22</span> Structure generation interpretation</li>
-                                    <li><span class="step-num">23</span> Structure family measurements export (Excel/CSV)</li>
-                                    <li><span class="step-num">24</span> Stereonet export (PNG &amp; PDF)</li>
-                                </ol>
-                                <ol class="explo-list lang-fr">
-                                    <li><span class="step-num">16</span> Importation d'une base de données structurales</li>
-                                    <li><span class="step-num">17</span> Affichage cyclographique et polaire sur stéréogramme</li>
-                                    <li><span class="step-num">18</span> Filtre par nom, type, projet, date, année et affichage sur stéréogramme</li>
-                                    <li><span class="step-num">19</span> Interprétation cyclographique et suggestion d'azimuth de forage</li>
-                                    <li><span class="step-num">20</span> Affichage et export de plan moyen par famille de structures</li>
-                                    <li><span class="step-num">21</span> Sélection polaire et regroupement de familles de structures</li>
-                                    <li><span class="step-num">22</span> Interprétation des générations de structures</li>
-                                    <li><span class="step-num">23</span> Export des mesures des familles de structures (Excel/CSV)</li>
-                                    <li><span class="step-num">24</span> Export de stéréogramme (PNG et PDF)</li>
-                                </ol>
-                            </div>
-
-                            <div class="explo-part">
-                                <p class="explo-part-title"><span class="part-icon">🧪</span> <span class="lang-en">Part 4 — XRF Geochemistry &amp; Interpretation</span><span class="lang-fr">Partie 4 — Géochimie XRF &amp; Interprétation</span></p>
-                                <ol class="explo-list lang-en">
-                                    <li><span class="step-num">25</span> XRF field mapping data import &amp; display</li>
-                                    <li><span class="step-num">26</span> Chemical Index of Alteration (CIA) calculation</li>
-                                    <li><span class="step-num">27</span> Regolith interpretation</li>
-                                    <li><span class="step-num">28</span> Zr/Ti ratio calculation</li>
-                                    <li><span class="step-num">29</span> Crystallophyllian geology interpretation</li>
-                                    <li><span class="step-num">30</span> Herron index calculation</li>
-                                    <li><span class="step-num">31</span> Sedimentary geology interpretation</li>
-                                    <li><span class="step-num">32</span> Hydrothermal alteration index calculation</li>
-                                    <li><span class="step-num">33</span> Mineralization &amp; anomaly signature interpretation</li>
-                                    <li><span class="step-num">34</span> Graphical display &amp; alteration index interpretation</li>
-                                    <li><span class="step-num">35</span> Graph export (PNG, PDF, Excel)</li>
-                                    <li><span class="step-num">36</span> Alteration index value export</li>
-                                    <li><span class="step-num">37</span> Alteration index import &amp; display</li>
-                                    <li><span class="step-num">38</span> Geology, regolith &amp; hydrothermal alteration map interpretation &amp; digitizing</li>
-                                    <li><span class="step-num">39</span> Anomalous zone interpretation &amp; target definition</li>
-                                    <li><span class="step-num">40</span> Map layout &amp; export</li>
-                                    <li class="curriculum-footer lang-en">41 → Diomine Digital Systems Training Certificate</li>
-                                    <li class="curriculum-footer lang-fr">41 → Certificat de Formation Diomine Digital Systems</li>
-                                </ol>
-                                <ol class="explo-list lang-fr">
-                                    <li><span class="step-num">25</span> Importation et affichage de données XRF mapping de champs</li>
-                                    <li><span class="step-num">26</span> Calcul d'indice chimique d'altération (CIA)</li>
-                                    <li><span class="step-num">27</span> Interprétation du regolith</li>
-                                    <li><span class="step-num">28</span> Calcul du rapport Zr/Ti</li>
-                                    <li><span class="step-num">29</span> Interprétation de la géologie cristallophyllienne</li>
-                                    <li><span class="step-num">30</span> Calcul d'indice de Herron</li>
-                                    <li><span class="step-num">31</span> Interprétation de la géologie sédimentaire</li>
-                                    <li><span class="step-num">32</span> Calcul d'indices d'altérations hydrothermales</li>
-                                    <li><span class="step-num">33</span> Interprétation des signatures de minéralisation et d'anomalies</li>
-                                    <li><span class="step-num">34</span> Affichage et interprétation graphique des indices d'altérations</li>
-                                    <li><span class="step-num">35</span> Export de graphes (PNG, PDF, Excel)</li>
-                                    <li><span class="step-num">36</span> Export des valeurs des indices d'altération</li>
-                                    <li><span class="step-num">37</span> Importation et affichage des indices d'altération</li>
-                                    <li><span class="step-num">38</span> Interprétation et digitalisation de cartes géologiques, de regolith et d'altération hydrothermale</li>
-                                    <li><span class="step-num">39</span> Interprétation de zones anomales et définition de cibles potentiellement minéralisées</li>
-                                    <li><span class="step-num">40</span> Mise en page et export de cartes</li>
-                                    <li class="curriculum-footer">41 → Certificat de Formation Diomine Digital Systems</li>
-                                </ol>
-                            </div>
+                <!-- 5 COURSE CARDS -->
+                <div class="catalog-grid">
+                    <div class="catalog-card" onclick="toggleCatalog(0)">
+                        <p class="catalog-card-num">FORMATION 01</p>
+                        <h4 class="lang-en">Digital Mining &amp; Exploration Mapping</h4>
+                        <h4 class="lang-fr">Cartographie Numérique Minière et d'Exploration</h4>
+                        <p class="catalog-card-tagline lang-en">"Read the terrain, trace the target"</p>
+                        <p class="catalog-card-tagline lang-fr">« Lire le terrain, tracer la cible »</p>
+                        <div class="catalog-card-meta">
+                            <span class="meta-pill">10 modules</span>
+                            <span class="meta-pill">QGIS</span>
+                            <span class="meta-pill">DH Auditor</span>
+                        </div>
+                    </div>
+                    <div class="catalog-card" onclick="toggleCatalog(1)">
+                        <p class="catalog-card-num">FORMATION 02</p>
+                        <h4 class="lang-en">Stereographic Analysis</h4>
+                        <h4 class="lang-fr">Analyse Stéréographique</h4>
+                        <p class="catalog-card-tagline lang-en">"The subsurface speaks in angles and planes"</p>
+                        <p class="catalog-card-tagline lang-fr">« Le sous-sol parle en angles et en plans »</p>
+                        <div class="catalog-card-meta">
+                            <span class="meta-pill">9 modules</span>
+                            <span class="meta-pill">QGIS</span>
+                            <span class="meta-pill">DH Auditor</span>
+                        </div>
+                    </div>
+                    <div class="catalog-card" onclick="toggleCatalog(2)">
+                        <p class="catalog-card-num">FORMATION 03</p>
+                        <h4 class="lang-en">Trench Display &amp; Interpretation</h4>
+                        <h4 class="lang-fr">Affichage et Interprétation de Tranchées</h4>
+                        <p class="catalog-card-tagline lang-en">"Every metre of trench tells a story"</p>
+                        <p class="catalog-card-tagline lang-fr">« Chaque mètre de tranchée raconte une histoire »</p>
+                        <div class="catalog-card-meta">
+                            <span class="meta-pill">7 modules</span>
+                            <span class="meta-pill">DH Auditor</span>
+                        </div>
+                    </div>
+                    <div class="catalog-card" onclick="toggleCatalog(3)">
+                        <p class="catalog-card-num">FORMATION 04</p>
+                        <h4 class="lang-en">Mineralization Geochemist</h4>
+                        <h4 class="lang-fr">Géochimiste de la Minéralisation</h4>
+                        <p class="catalog-card-tagline lang-en">"Track the target hidden in the rock"</p>
+                        <p class="catalog-card-tagline lang-fr">« Traquer la cible cachée dans la roche »</p>
+                        <div class="catalog-card-meta">
+                            <span class="meta-pill">16 modules</span>
+                            <span class="meta-pill">DH Auditor</span>
+                        </div>
+                    </div>
+                    <div class="catalog-card" onclick="toggleCatalog(4)">
+                        <p class="catalog-card-num">FORMATION 05</p>
+                        <h4 class="lang-en">Drillhole Data Processing</h4>
+                        <h4 class="lang-fr">Traitement de Données de Forage</h4>
+                        <p class="catalog-card-tagline lang-en">"From drillhole to mineralized envelope"</p>
+                        <p class="catalog-card-tagline lang-fr">« Du forage à l'enveloppe minéralisée »</p>
+                        <div class="catalog-card-meta">
+                            <span class="meta-pill">8 modules</span>
+                            <span class="meta-pill">QGIS</span>
+                            <span class="meta-pill">DH Auditor</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- PANEL 1: RESOURCE MODELING -->
-            <div class="training-panel" id="trainPanel1">
-                <div class="training-body">
-                    <div>
-                        <p class="eyebrow lang-en" style="margin-bottom:14px">Resource Modeling Package · 18 modules</p>
-                        <p class="eyebrow lang-fr" style="margin-bottom:14px">Package Modélisation de Ressources · 18 modules</p>
-                        <ol class="curriculum-list lang-en">
-                            <li><span class="step-num">01</span> Database creation</li>
-                            <li><span class="step-num">02</span> Drillhole &amp; assay display</li>
-                            <li><span class="step-num">03</span> Composite creation</li>
-                            <li><span class="step-num">04</span> Mineralization digitizing</li>
-                            <li><span class="step-num">05</span> Geology digitizing</li>
-                            <li><span class="step-num">06</span> Geological model creation</li>
-                            <li><span class="step-num">07</span> Alteration profile digitizing</li>
-                            <li><span class="step-num">08</span> Regolith model creation</li>
-                            <li><span class="step-num">09</span> Capping / top-cutting</li>
-                            <li><span class="step-num">10</span> Domain assignment</li>
-                            <li><span class="step-num">11</span> Density assignment</li>
-                            <li><span class="step-num">12</span> Variogram analysis</li>
-                            <li><span class="step-num">13</span> Block model creation</li>
-                            <li><span class="step-num">14</span> Attribute creation</li>
-                            <li><span class="step-num">15</span> Script creation</li>
-                            <li><span class="step-num">16</span> Resource estimation (Kriging &amp; IDW)</li>
-                            <li><span class="step-num">17</span> Block model reporting</li>
-                            <li><span class="step-num">18</span> Swath plotting</li>
-                            <li class="curriculum-footer">→ Diomine Digital Systems Certification</li>
-                        </ol>
-                        <ol class="curriculum-list lang-fr">
-                            <li><span class="step-num">01</span> Création de base de données</li>
-                            <li><span class="step-num">02</span> Affichage des forages et assays</li>
-                            <li><span class="step-num">03</span> Création de composite</li>
-                            <li><span class="step-num">04</span> Digitalisation de la minéralisation</li>
-                            <li><span class="step-num">05</span> Digitalisation de la géologie</li>
-                            <li><span class="step-num">06</span> Création de modèle géologique</li>
-                            <li><span class="step-num">07</span> Digitalisation du profil d'altération</li>
-                            <li><span class="step-num">08</span> Création de modèle de regolith</li>
-                            <li><span class="step-num">09</span> Capping ou plafonnement</li>
-                            <li><span class="step-num">10</span> Assignation de domaine</li>
-                            <li><span class="step-num">11</span> Assignation de densité</li>
-                            <li><span class="step-num">12</span> Analyse de variogramme</li>
-                            <li><span class="step-num">13</span> Création de block modèle</li>
-                            <li><span class="step-num">14</span> Création d'attribut</li>
-                            <li><span class="step-num">15</span> Création de scripts</li>
-                            <li><span class="step-num">16</span> Estimations de ressources (Kriging &amp; IDW)</li>
-                            <li><span class="step-num">17</span> Block model reporting</li>
-                            <li><span class="step-num">18</span> Swath plotting</li>
-                            <li class="curriculum-footer">→ Certification Diomine Digital Systems</li>
-                        </ol>
+                <!-- DETAIL PANELS -->
+                <div class="catalog-detail" id="catDetail0">
+                    <div class="catalog-detail-head">
+                        <div>
+                            <h3 class="lang-en">Formation 1 — Digital Mining &amp; Exploration Mapping</h3>
+                            <h3 class="lang-fr">Formation 1 — Cartographie Numérique Minière et d'Exploration</h3>
+                            <p class="lang-en">Covers the entire mapping workflow in mining exploration: from multi-format field data import to production-ready professional maps.</p>
+                            <p class="lang-fr">Couvre l'ensemble de la chaîne cartographique en exploration minière : de l'importation multiformats des données de terrain jusqu'à la production de cartes professionnelles.</p>
+                        </div>
+                        <button class="catalog-detail-close" onclick="toggleCatalog(0)">✕</button>
                     </div>
+                    <div class="catalog-parts">
+                        <div class="catalog-part">
+                            <p class="catalog-part-title lang-en">Part 1 · Mapping — 7 modules</p>
+                            <p class="catalog-part-title lang-fr">Partie 1 · Cartographie — 7 modules</p>
+                            <ul class="catalog-mod-list">
+                                <li><span class="step-num">01</span> Import &amp; export multi-formats (Excel, CSV, GPX, Raster, Shapefile, DXF)</li>
+                                <li><span class="step-num">02</span> Géoréférencement d'une carte</li>
+                                <li><span class="step-num">03</span> Création de vecteurs et digitalisation</li>
+                                <li><span class="step-num">04</span> Création automatique de réseau hydrographique</li>
+                                <li><span class="step-num">05</span> Import géolocalisé de photos d'affleurement</li>
+                                <li><span class="step-num">06</span> Import et affichage de mesures structurales</li>
+                                <li><span class="step-num">07</span> Mise en page et export de carte</li>
+                            </ul>
+                        </div>
+                        <div class="catalog-part">
+                            <p class="catalog-part-title lang-en">Part 2 · Mining Data — 3 modules</p>
+                            <p class="catalog-part-title lang-fr">Partie 2 · Données Minières — 3 modules</p>
+                            <ul class="catalog-mod-list">
+                                <li><span class="step-num">08</span> Importation et catégorisation Assay &amp; classes de teneurs</li>
+                                <li><span class="step-num">09</span> Importation DXF Digblocks &amp; digitalisation de polygones d'excavation</li>
+                                <li><span class="step-num">10</span> Exportation de cartes de répartition de teneurs et d'excavation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="why-grid">
-                        <p class="eyebrow lang-en">Why choose us</p>
-                        <p class="eyebrow lang-fr">Pourquoi nous choisir</p>
+                <div class="catalog-detail" id="catDetail1">
+                    <div class="catalog-detail-head">
+                        <div>
+                            <h3 class="lang-en">Formation 2 — Stereographic Analysis</h3>
+                            <h3 class="lang-fr">Formation 2 — Analyse Stéréographique</h3>
+                            <p class="lang-en">Complete stereographic analysis of structural measurements: from database import to structure family identification, drill azimuth suggestion and result export.</p>
+                            <p class="lang-fr">Analyse stéréographique complète des mesures structurales : de l'import de la base de données à l'identification des familles de structures, suggestion d'azimut de forage et export des résultats.</p>
+                        </div>
+                        <button class="catalog-detail-close" onclick="toggleCatalog(1)">✕</button>
+                    </div>
+                    <div class="catalog-parts">
+                        <div class="catalog-part">
+                            <p class="catalog-part-title">9 modules</p>
+                            <ul class="catalog-mod-list">
+                                <li><span class="step-num">01</span> Import d'une base de données structurales</li>
+                                <li><span class="step-num">02</span> Affichage cyclographique et polaire sur stéréogramme</li>
+                                <li><span class="step-num">03</span> Filtres multicritères (nom, type, projet, date, année)</li>
+                                <li><span class="step-num">04</span> Interprétation cyclographique et suggestion d'azimut de forage</li>
+                                <li><span class="step-num">05</span> Affichage et export du plan moyen de familles de structures</li>
+                                <li><span class="step-num">06</span> Sélection polaire et regroupement par génération</li>
+                                <li><span class="step-num">07</span> Interprétation des générations de structures</li>
+                                <li><span class="step-num">08</span> Export des mesures de familles (Excel/CSV)</li>
+                                <li><span class="step-num">09</span> Export du stéréogramme (PNG/PDF)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="why-item">
-                            <div class="why-icon">⛏️</div>
-                            <div>
-                                <h4 class="lang-en">100% hands-on, zero filler</h4>
-                                <h4 class="lang-fr">100% pratique, zéro remplissage</h4>
-                                <p class="lang-en">No empty lectures — every session uses real industrial data and real workflows.</p>
-                                <p class="lang-fr">Pas de cours théoriques vides — chaque session utilise des données et des workflows industriels réels.</p>
-                            </div>
+                <div class="catalog-detail" id="catDetail2">
+                    <div class="catalog-detail-head">
+                        <div>
+                            <h3 class="lang-en">Formation 3 — Trench Display &amp; Interpretation</h3>
+                            <h3 class="lang-fr">Formation 3 — Affichage et Interprétation de Tranchées</h3>
+                            <p class="lang-en">From raw field data to an interpreted, sampled and exported geological section, with QAQC quality control integrated at every step.</p>
+                            <p class="lang-fr">De la donnée brute de terrain à une section géologique interprétée, échantillonnée et exportée, avec un contrôle qualité (QAQC) intégré à chaque étape.</p>
                         </div>
-                        <div class="why-item">
-                            <div class="why-icon">🕐</div>
-                            <div>
-                                <h4 class="lang-en">At the learner's own pace</h4>
-                                <h4 class="lang-fr">Au rythme de l'apprenant</h4>
-                                <p class="lang-en">No fixed schedule — you progress based on your availability and your mastery of each module.</p>
-                                <p class="lang-fr">Pas d'agenda imposé — vous avancez selon votre disponibilité et votre maîtrise de chaque module.</p>
-                            </div>
+                        <button class="catalog-detail-close" onclick="toggleCatalog(2)">✕</button>
+                    </div>
+                    <div class="catalog-parts">
+                        <div class="catalog-part">
+                            <p class="catalog-part-title">7 modules</p>
+                            <ul class="catalog-mod-list">
+                                <li><span class="step-num">01</span> Import et affichage d'une tranchée d'exploration</li>
+                                <li><span class="step-num">02</span> Choix de la face de la tranchée à afficher</li>
+                                <li><span class="step-num">03</span> Création et affichage d'échantillons sur la tranchée</li>
+                                <li><span class="step-num">04</span> Fiches d'échantillonnage, QAQC et export Excel/CSV</li>
+                                <li><span class="step-num">05</span> Digitalisation et interprétation géologique en section</li>
+                                <li><span class="step-num">06</span> Affichage des mesures structurales sur la section</li>
+                                <li><span class="step-num">07</span> Mise en page et export de la section (PNG/PDF)</li>
+                            </ul>
                         </div>
-                        <div class="why-item">
-                            <div class="why-icon">📜</div>
-                            <div>
-                                <h4 class="lang-en">DDS Certificate</h4>
-                                <h4 class="lang-fr">Certificat Diomine Digital Systems</h4>
-                                <p class="lang-en">Official recognition of your skills upon completion.</p>
-                                <p class="lang-fr">Reconnaissance de vos compétences à l'issue de la formation.</p>
-                            </div>
-                        </div>
-                        <div class="why-item">
-                            <div class="why-icon">👥</div>
-                            <div>
-                                <h4 class="lang-en">Expert mentoring</h4>
-                                <h4 class="lang-fr">Encadrement par des experts</h4>
-                                <p class="lang-en">Trainers experienced in the mining industry.</p>
-                                <p class="lang-fr">Formateurs expérimentés dans l'industrie minière.</p>
-                            </div>
-                        </div>
+                    </div>
+                </div>
 
-                        <div class="tools-row" style="flex-wrap:wrap;">
-                            <span class="lang-en">Tools</span>
-                            <span class="lang-fr">Outils</span>
-                            <span class="tool-tag">Datamine Studio</span>
-                            <span class="tool-tag">Micromine</span>
-                            <span class="tool-tag">Surpac</span>
-                            <span class="tool-tag">Vulcan</span>
-                            <span class="tool-tag">Leapfrog</span>
+                <div class="catalog-detail" id="catDetail3">
+                    <div class="catalog-detail-head">
+                        <div>
+                            <h3 class="lang-en">Formation 4 — Mineralization Geochemist</h3>
+                            <h3 class="lang-fr">Formation 4 — Géochimiste de la Minéralisation</h3>
+                            <p class="lang-en">Advanced course covering geochemical index calculation and interpretation (CIA, Zr/Ti, Herron, hydrothermal alteration) through to targeting potentially mineralized anomalous zones.</p>
+                            <p class="lang-fr">Formation avancée couvrant le calcul et l'interprétation des indices géochimiques (CIA, Zr/Ti, Herron, altération hydrothermale) jusqu'au ciblage des zones anomales potentiellement minéralisées.</p>
                         </div>
-                        <p style="font-size:0.78rem;color:var(--quartz-dim);margin-top:12px;font-style:italic;">
-                            <span class="lang-en">☝ The learner chooses <strong style="color:var(--quartz)">one software</strong> for the entire training. <strong style="color:var(--gold-vein)">Diomine DH Auditor 2026.3.1</strong> is mandatory as a support tool for all participants.</span>
-                            <span class="lang-fr">☝ L'apprenant choisit <strong style="color:var(--quartz)">un seul logiciel</strong> pour toute la formation. <strong style="color:var(--gold-vein)">Diomine DH Auditor 2026.3.1</strong> est imposé comme outil de support pour tous les participants.</span>
-                        </p>
+                        <button class="catalog-detail-close" onclick="toggleCatalog(3)">✕</button>
+                    </div>
+                    <div class="catalog-parts">
+                        <div class="catalog-part">
+                            <p class="catalog-part-title">16 modules</p>
+                            <ul class="catalog-mod-list">
+                                <li><span class="step-num">01</span> Import et affichage de données XRF mapping</li>
+                                <li><span class="step-num">02</span> Calcul de l'indice chimique d'altération (CIA)</li>
+                                <li><span class="step-num">03</span> Interprétation du régolithe</li>
+                                <li><span class="step-num">04</span> Calcul du rapport Zr/Ti</li>
+                                <li><span class="step-num">05</span> Interprétation de la géologie cristallophyllienne</li>
+                                <li><span class="step-num">06</span> Calcul de l'indice de Herron</li>
+                                <li><span class="step-num">07</span> Interprétation de la géologie sédimentaire</li>
+                                <li><span class="step-num">08</span> Calcul d'indices d'altération hydrothermale</li>
+                                <li><span class="step-num">09</span> Interprétation des signatures de minéralisation</li>
+                                <li><span class="step-num">10</span> Affichage et interprétation graphique des indices</li>
+                                <li><span class="step-num">11</span> Export de graphes (PNG, PDF, Excel)</li>
+                                <li><span class="step-num">12</span> Export des valeurs des indices d'altération</li>
+                                <li><span class="step-num">13</span> Import et affichage des indices d'altération</li>
+                                <li><span class="step-num">14</span> Digitalisation de cartes géologiques et d'altération</li>
+                                <li><span class="step-num">15</span> Ciblage des zones anomales potentiellement minéralisées</li>
+                                <li><span class="step-num">16</span> Mise en page et export final de carte</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog-detail" id="catDetail4">
+                    <div class="catalog-detail-head">
+                        <div>
+                            <h3 class="lang-en">Formation 5 — Drillhole Data Processing</h3>
+                            <h3 class="lang-fr">Formation 5 — Traitement de Données de Forage</h3>
+                            <p class="lang-en">Covers import and display of collar, survey, litho and assay tables, drillhole section creation, mineralized envelope digitizing and drilling program planning.</p>
+                            <p class="lang-fr">Couvre l'import et l'affichage des tables collar, survey, litho et assay, la création de sections de forages, la digitalisation des enveloppes minéralisées et la planification de programmes de forage.</p>
+                        </div>
+                        <button class="catalog-detail-close" onclick="toggleCatalog(4)">✕</button>
+                    </div>
+                    <div class="catalog-parts">
+                        <div class="catalog-part">
+                            <p class="catalog-part-title">8 modules</p>
+                            <ul class="catalog-mod-list">
+                                <li><span class="step-num">01</span> Import et affichage collar, survey, Litho et Assay</li>
+                                <li><span class="step-num">02</span> Affichage et catégorisation des classes de teneurs</li>
+                                <li><span class="step-num">03</span> Affichage et catégorisation des classes lithologiques</li>
+                                <li><span class="step-num">04</span> Création et affichage de sections de forages</li>
+                                <li><span class="step-num">05</span> Digitalisation des enveloppes minéralisées</li>
+                                <li><span class="step-num">06</span> Planification de programme de forage ou géochimie sol</li>
+                                <li><span class="step-num">07</span> Mise en page et export de cartes</li>
+                                <li><span class="step-num">08</span> Export multi-formats (Excel, CSV, GPX, Raster, GPS)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRACTICAL INFO -->
+                <div class="practical-grid">
+                    <div class="practical-item">
+                        <strong class="lang-en">📜 CERTIFICATION</strong><strong class="lang-fr">📜 CERTIFICATION</strong>
+                        <span class="lang-en">Diomine Digital Systems Certificate upon completion</span>
+                        <span class="lang-fr">Certificat Diomine Digital Systems à l'issue de la formation</span>
+                    </div>
+                    <div class="practical-item">
+                        <strong class="lang-en">🎯 TARGET AUDIENCE</strong><strong class="lang-fr">🎯 PUBLIC CIBLE</strong>
+                        <span class="lang-en">Exploration &amp; mine geologists, database managers, mining professionals</span>
+                        <span class="lang-fr">Géologues d'exploration et de mine, responsables BDD, professionnels miniers</span>
+                    </div>
+                    <div class="practical-item">
+                        <strong class="lang-en">🌍 LANGUAGES</strong><strong class="lang-fr">🌍 LANGUES</strong>
+                        <span class="lang-en">French, English, Dioula</span>
+                        <span class="lang-fr">Français, Anglais, Dioula</span>
+                    </div>
+                    <div class="practical-item">
+                        <strong class="lang-en">💻 FORMAT</strong><strong class="lang-fr">💻 FORMAT</strong>
+                        <span class="lang-en">In-person or remote, at your own pace</span>
+                        <span class="lang-fr">Présentiel ou à distance, à votre rythme</span>
                     </div>
                 </div>
             </div>
@@ -1642,10 +1679,7 @@
                         <span class="lang-en">📝 Enroll now</span>
                         <span class="lang-fr">📝 S'inscrire maintenant</span>
                     </a>
-                    <a href="https://wa.me/2250545323078" class="btn btn-line" target="_blank">
-                        <span class="lang-en">WhatsApp</span>
-                        <span class="lang-fr">WhatsApp</span>
-                    </a>
+                    <a href="https://wa.me/2250545323078" class="btn btn-line" target="_blank">WhatsApp</a>
                     <a href="contact.html" class="btn btn-line lang-en">Contact us</a>
                     <a href="contact.html" class="btn btn-line lang-fr">Nous contacter</a>
                     <span class="contact-line">📞 +225 0545323078</span>
@@ -1662,6 +1696,7 @@
             </div>
         </div>
     </section>
+
 
     <section class="section reveal" id="article">
         <div class="section-head">
@@ -1945,14 +1980,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             getHits();
 
-            // Training tabs
-            window.switchTrainingTab = function(idx) {
-                document.querySelectorAll('.training-panel').forEach((p, i) => {
-                    p.classList.toggle('active', i === idx);
-                });
-                document.querySelectorAll('.training-tab').forEach((t, i) => {
-                    t.classList.toggle('active', i === idx);
-                });
+            // Training catalog toggle
+            window.toggleCatalog = function(idx) {
+                const detail = document.getElementById('catDetail' + idx);
+                const card = document.querySelectorAll('.catalog-card')[idx];
+                const isOpen = detail.classList.contains('active');
+                document.querySelectorAll('.catalog-detail').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.catalog-card').forEach(c => c.classList.remove('active'));
+                if (!isOpen) {
+                    detail.classList.add('active');
+                    card.classList.add('active');
+                    detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
             };
 
             // Mobile nav toggle
