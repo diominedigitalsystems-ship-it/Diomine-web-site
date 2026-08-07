@@ -2187,10 +2187,54 @@
                 });
             });
 
-            // Download - direct (no modal intercept)
-            // Modal removed to ensure smooth downloads
+            // Download modal (Donate / Skip)
+            const downloadModal = document.getElementById('downloadModalOverlay');
+            const btnDonate = document.getElementById('modalDonateBtn');
+            const btnSkip = document.getElementById('modalSkipBtn');
+            let currentDownloadUrl = "";
+
+            document.querySelectorAll('.btn-download').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    currentDownloadUrl = this.getAttribute('href');
+                    downloadModal.style.display = 'flex';
+                });
+            });
+
+            function executeDownload() {
+                window.location.href = currentDownloadUrl;
+                downloadModal.style.display = 'none';
+            }
+
+            btnSkip.addEventListener('click', executeDownload);
+
+            btnDonate.addEventListener('click', function () {
+                window.open('https://www.paypal.com/donate/?hosted_button_id=EDGN2KD79DYU4', '_blank');
+                executeDownload();
+            });
+
+            downloadModal.addEventListener('click', function (e) {
+                if (e.target === downloadModal) downloadModal.style.display = 'none';
+            });
         });
     </script>
+    <div id="downloadModalOverlay" style="position:fixed;inset:0;background:rgba(10,7,5,0.82);display:none;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(6px);padding:20px;">
+        <div style="background:var(--bedrock);padding:36px;border-radius:12px;text-align:center;border:1px solid var(--ochre-soft);max-width:440px;width:100%;">
+            <h3 style="color:var(--gold-vein);font-family:var(--font-display);font-size:1.3rem;margin:0 0 14px;">
+                <span class="lang-en">Support our work 💛</span>
+                <span class="lang-fr">Soutenez notre travail 💛</span>
+            </h3>
+            <p style="color:var(--quartz-dim);margin:0;">
+                <span class="lang-en">Our software is completely free. Your donation helps us maintain it and develop new features.</span>
+                <span class="lang-fr">Nos logiciels sont totalement gratuits. Vos dons nous aident à les maintenir et à développer de nouvelles fonctionnalités.</span>
+            </p>
+            <div style="margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+                <button id="modalDonateBtn" class="btn btn-primary"><span class="lang-en">Donate</span><span class="lang-fr">Donner</span></button>
+                <button id="modalSkipBtn" class="btn btn-ghost"><span class="lang-en">Skip</span><span class="lang-fr">Passer</span></button>
+            </div>
+        </div>
+    </div>
+
     <div id="cookieBanner" class="cookie-banner">
         <p class="cookie-text">
             <span class="lang-en">This website uses cookies and Google AdSense to serve ads. By continuing, you agree to our <a href="privacy.html">Privacy Policy</a> and the use of cookies for analytics and advertising.</span>
