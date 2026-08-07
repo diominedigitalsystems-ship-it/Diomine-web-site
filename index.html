@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diomine Digital Systems | Official Site</title>
-    <link rel="icon" type="image/png" href="diomine logo.png">
+    <link rel="icon" type="image/x-icon" href="Diomine-26-4.ico">
     <meta name="description" content="Diomine Digital Systems develops advanced mining software for geological auditing, drillhole planning, mapping and structural analysis.">
     <meta name="keywords" content="Mining Software, Geology Software, Drillhole Planning, DH Auditor, Mining Engineering">
     <meta name="author" content="Diomine Digital Systems">
@@ -526,16 +526,65 @@
             border: 1px solid var(--hairline);
             border-radius: 10px;
             padding: clamp(24px, 4vw, 36px);
+            background: var(--bedrock);
+        }
+        .support-head {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            gap: 24px;
+            align-items: flex-start;
             flex-wrap: wrap;
-            background: var(--bedrock);
+            gap: 16px;
+            margin-bottom: 22px;
         }
         .support-text h3 { font-size: 1.15rem; margin-bottom: 6px; }
         .support-text p { color: var(--quartz-dim); margin: 0; max-width: 50ch; }
         .support-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+        .donate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        .donate-option {
+            border: 1px solid var(--hairline);
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+            cursor: default;
+        }
+        .donate-option:hover { border-color: var(--ochre-soft); transform: translateY(-2px); }
+        .donate-option-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .donate-option h4 {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--quartz);
+            margin: 0 0 4px;
+        }
+        .donate-option-num {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            color: var(--quartz-dim);
+            letter-spacing: 0.02em;
+        }
+        .donate-option-label {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--quartz-dim);
+            margin-top: 4px;
+        }
 
         /* ---------- FOOTER ---------- */
         footer {
@@ -1095,6 +1144,80 @@
         @media (max-width: 880px) {
             .explo-parts { grid-template-columns: 1fr; }
         }
+
+        /* ---------- ARCHIVES ---------- */
+        .archives-toggle {
+            width: 100%;
+            background: none;
+            border: 1px solid var(--hairline);
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            color: var(--quartz-dim);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+        }
+        .archives-toggle:hover { border-color: var(--ochre-soft); color: var(--quartz); }
+        .archives-toggle .arrow { transition: transform 0.25s; }
+        .archives-toggle.open .arrow { transform: rotate(180deg); }
+        .archives-list {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid var(--hairline);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .archives-list.open { display: block; }
+        .archive-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            gap: 14px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--hairline);
+            transition: background 0.15s;
+        }
+        .archive-row:last-child { border-bottom: none; }
+        .archive-row:hover { background: rgba(255,255,255,0.02); }
+        .archive-info { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+        .archive-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: var(--bedrock-2);
+            padding: 4px;
+            flex-shrink: 0;
+        }
+        .archive-name {
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--quartz);
+        }
+        .archive-meta {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            color: var(--quartz-dim);
+            letter-spacing: 0.03em;
+        }
+        .archive-dl {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--ochre);
+            text-decoration: none;
+            border: 1px solid var(--ochre-soft);
+            border-radius: 5px;
+            padding: 6px 14px;
+            transition: 0.15s;
+            white-space: nowrap;
+        }
+        .archive-dl:hover { background: rgba(217,128,44,0.1); }
 
         /* ---------- COOKIE CONSENT ---------- */
         .cookie-banner {
@@ -1813,8 +1936,8 @@
             <div class="specimen featured">
                 <div class="specimen-top">
                     <img src="Diomine-2026-3-1-icon.png" class="specimen-logo" alt="Diomine DH Auditor 2026.3.1 icon">
-                    <span class="specimen-badge lang-en">New</span>
-                    <span class="specimen-badge lang-fr">Nouveau</span>
+                    <span class="specimen-badge lang-en">Latest</span>
+                    <span class="specimen-badge lang-fr">Dernière</span>
                 </div>
                 <h3>Diomine DH Auditor 2026.3.1</h3>
                 <p class="specimen-spec">WIN · ZIP · V2026.3.1</p>
@@ -1822,42 +1945,6 @@
                 <p class="lang-fr">Dernière version avec de nouvelles fonctionnalités et améliorations par rapport à la V2026.3.</p>
                 <a href="https://github.com/diominedigitalsystems-ship-it/Diomine-web-site/releases/download/V_2026.3.1/Diomine.DH.Auditor.2026.3.1.zip" class="btn btn-primary btn-download lang-en">Download V2026.3.1</a>
                 <a href="https://github.com/diominedigitalsystems-ship-it/Diomine-web-site/releases/download/V_2026.3.1/Diomine.DH.Auditor.2026.3.1.zip" class="btn btn-primary btn-download lang-fr">Télécharger V2026.3.1</a>
-            </div>
-
-            <div class="specimen">
-                <div class="specimen-top">
-                    <img src="logo-Diomine-2026-3.png" class="specimen-logo" alt="Diomine DH Auditor 2026.3 icon">
-                </div>
-                <h3>Diomine DH Auditor 2026.3</h3>
-                <p class="specimen-spec">WIN · ZIP · V2026.3</p>
-                <p class="lang-en">Optimized structural analysis, enhanced XRF geochemical interpretation, and updated database engine.</p>
-                <p class="lang-fr">Analyse structurale optimisée, interprétations géochimiques XRF améliorées et moteur de base de données mis à jour.</p>
-                <a href="https://github.com/diominedigitalsystems-ship-it/Diomine-web-site/releases/download/V_2026.3/Diomine_DH_Auditor_2026_3_Setup.zip" class="btn btn-ghost btn-download lang-en">Download V2026.3</a>
-                <a href="https://github.com/diominedigitalsystems-ship-it/Diomine-web-site/releases/download/V_2026.3/Diomine_DH_Auditor_2026_3_Setup.zip" class="btn btn-ghost btn-download lang-fr">Télécharger V2026.3</a>
-            </div>
-
-            <div class="specimen">
-                <div class="specimen-top">
-                    <img src="diomine-dh-auditor-2026-2.png" class="specimen-logo" alt="Diomine DH Auditor 2026.2 icon">
-                </div>
-                <h3>Diomine DH Auditor 2026.2</h3>
-                <p class="specimen-spec">WIN · SETUP.EXE · V2026.2</p>
-                <p class="lang-en">Optimized structural analysis, enhanced XRF geochemical interpretation, and an updated database engine.</p>
-                <p class="lang-fr">Analyse structurale optimisée, interprétations géochimiques XRF améliorées et moteur de base de données mis à jour.</p>
-                <a href="https://github.com/diominedigitalsystems-ship-it/web-site/releases/download/V2026.2/Diomine_DH_Auditor_2026_2_Setup.exe" class="btn btn-ghost btn-download lang-en">Download V2026.2</a>
-                <a href="https://github.com/diominedigitalsystems-ship-it/web-site/releases/download/V2026.2/Diomine_DH_Auditor_2026_2_Setup.exe" class="btn btn-ghost btn-download lang-fr">Télécharger V2026.2</a>
-            </div>
-
-            <div class="specimen">
-                <div class="specimen-top">
-                    <img src="dh-auditor-icon.png" class="specimen-logo" alt="Diomine DH Auditor icon">
-                </div>
-                <h3>Diomine DH Auditor 2026.1.2</h3>
-                <p class="specimen-spec">WIN · SETUP.EXE · V2026.1.2</p>
-                <p class="lang-en">Database auditing, advanced statistics for resource geologists, stereography and mapping tools.</p>
-                <p class="lang-fr">Audit de base de données, statistiques avancées pour géologues ressources, outils de stéréographie et de cartographie.</p>
-                <a href="https://github.com/diominedigitalsystems-ship-it/Diomine_DH_Auditor_Software/releases/download/V2026.1.2/Diomine_DH_Auditor_2026_1_2_Setup.exe" class="btn btn-ghost btn-download lang-en">Download</a>
-                <a href="https://github.com/diominedigitalsystems-ship-it/Diomine_DH_Auditor_Software/releases/download/V2026.1.2/Diomine_DH_Auditor_2026_1_2_Setup.exe" class="btn btn-ghost btn-download lang-fr">Télécharger</a>
             </div>
 
             <div class="specimen">
@@ -1886,6 +1973,50 @@
                 <a href="https://github.com/diominedigitalsystems-ship-it/Diomine_Masterclass_data/raw/refs/heads/main/DDS_database.zip" class="btn btn-ghost lang-fr" target="_blank">Obtenir les données</a>
             </div>
         </div>
+
+        <button class="archives-toggle" id="archivesToggle" onclick="toggleArchives()">
+            <span>
+                <span class="lang-en">📦 Previous releases — DH Auditor V2026.3 · V2026.2 · V2026.1.2</span>
+                <span class="lang-fr">📦 Versions précédentes — DH Auditor V2026.3 · V2026.2 · V2026.1.2</span>
+            </span>
+            <span class="arrow">▾</span>
+        </button>
+        <div class="archives-list" id="archivesList">
+            <div class="archive-row">
+                <div class="archive-info">
+                    <img src="logo-Diomine-2026-3.png" class="archive-icon" alt="V2026.3">
+                    <div>
+                        <div class="archive-name">DH Auditor 2026.3</div>
+                        <div class="archive-meta">WIN · ZIP · V2026.3</div>
+                    </div>
+                </div>
+                <a href="https://github.com/diominedigitalsystems-ship-it/Diomine-web-site/releases/download/V_2026.3/Diomine_DH_Auditor_2026_3_Setup.zip" class="archive-dl btn-download lang-en">Download</a>
+                <a href="https://github.com/diominedigitalsystems-ship-it/Diomine-web-site/releases/download/V_2026.3/Diomine_DH_Auditor_2026_3_Setup.zip" class="archive-dl btn-download lang-fr">Télécharger</a>
+            </div>
+            <div class="archive-row">
+                <div class="archive-info">
+                    <img src="diomine-dh-auditor-2026-2.png" class="archive-icon" alt="V2026.2">
+                    <div>
+                        <div class="archive-name">DH Auditor 2026.2</div>
+                        <div class="archive-meta">WIN · SETUP.EXE · V2026.2</div>
+                    </div>
+                </div>
+                <a href="https://github.com/diominedigitalsystems-ship-it/web-site/releases/download/V2026.2/Diomine_DH_Auditor_2026_2_Setup.exe" class="archive-dl btn-download lang-en">Download</a>
+                <a href="https://github.com/diominedigitalsystems-ship-it/web-site/releases/download/V2026.2/Diomine_DH_Auditor_2026_2_Setup.exe" class="archive-dl btn-download lang-fr">Télécharger</a>
+            </div>
+            <div class="archive-row">
+                <div class="archive-info">
+                    <img src="dh-auditor-icon.png" class="archive-icon" alt="V2026.1.2">
+                    <div>
+                        <div class="archive-name">DH Auditor 2026.1.2</div>
+                        <div class="archive-meta">WIN · SETUP.EXE · V2026.1.2</div>
+                    </div>
+                </div>
+                <a href="https://github.com/diominedigitalsystems-ship-it/Diomine_DH_Auditor_Software/releases/download/V2026.1.2/Diomine_DH_Auditor_2026_1_2_Setup.exe" class="archive-dl btn-download lang-en">Download</a>
+                <a href="https://github.com/diominedigitalsystems-ship-it/Diomine_DH_Auditor_Software/releases/download/V2026.1.2/Diomine_DH_Auditor_2026_1_2_Setup.exe" class="archive-dl btn-download lang-fr">Télécharger</a>
+            </div>
+        </div>
+        </div>
     </section>
 
     <section class="section reveal" id="feedback">
@@ -1907,23 +2038,68 @@
 
     <section class="section reveal">
         <div class="support-card">
-            <div class="support-text">
-                <h3 class="lang-en">Support this project</h3>
-                <h3 class="lang-fr">Soutenez ce projet</h3>
-                <p class="lang-en">Our software is free. Donations help us maintain it and build new features.</p>
-                <p class="lang-fr">Nos logiciels sont gratuits. Vos dons nous aident à les maintenir et à développer de nouvelles fonctionnalités.</p>
-            </div>
-            <div class="support-actions">
-                <a href="https://www.paypal.com/donate/?hosted_button_id=EDGN2KD79DYU4" class="btn btn-line lang-en" target="_blank">Donate · PayPal</a>
-                <a href="https://www.paypal.com/donate/?hosted_button_id=EDGN2KD79DYU4" class="btn btn-line lang-fr" target="_blank">Donner · PayPal</a>
-                <div class="kofi-button-container">
-                    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-                    <script type='text/javascript'>
-                        kofiwidget2.init('Support me on Ko-fi', '#d9802c', 'H2H41UM4PB');
-                        kofiwidget2.draw();
-                    </script>
+            <div class="support-head">
+                <div class="support-text">
+                    <h3 class="lang-en">Support this project</h3>
+                    <h3 class="lang-fr">Soutenez ce projet</h3>
+                    <p class="lang-en">Our software is free. Your donations help us maintain it, build new features and train the next generation of African mining geologists.</p>
+                    <p class="lang-fr">Nos logiciels sont gratuits. Vos dons nous aident à les maintenir, développer de nouvelles fonctionnalités et former la prochaine génération de géologues miniers africains.</p>
+                </div>
+                <div class="support-actions">
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=EDGN2KD79DYU4" class="btn btn-line lang-en" target="_blank">Donate · PayPal</a>
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=EDGN2KD79DYU4" class="btn btn-line lang-fr" target="_blank">Donner · PayPal</a>
+                    <div class="kofi-button-container">
+                        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                        <script type='text/javascript'>
+                            kofiwidget2.init('Support me on Ko-fi', '#d9802c', 'H2H41UM4PB');
+                            kofiwidget2.draw();
+                        </script>
+                    </div>
                 </div>
             </div>
+
+            <p class="eyebrow lang-en" style="margin-bottom:12px">Mobile Money · Donate to support the project</p>
+            <p class="eyebrow lang-fr" style="margin-bottom:12px">Mobile Money · Faites un don pour soutenir le projet</p>
+
+            <div class="donate-grid">
+                <div class="donate-option" style="border-color:rgba(255,102,0,0.25);">
+                    <div class="donate-option-icon" style="background:#FF6600;color:#fff;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="6" fill="#FF6600"/></svg>
+                    </div>
+                    <h4>Orange Money</h4>
+                    <p class="donate-option-num">(+225) 07 57 38 49 83</p>
+                    <p class="donate-option-label">Diomine Digital Systems</p>
+                </div>
+                <div class="donate-option" style="border-color:rgba(255,204,0,0.25);">
+                    <div class="donate-option-icon" style="background:#FFCC00;color:#1a1a1a;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" fill="#1a1a1a"/><text x="12" y="15" text-anchor="middle" font-size="7" font-weight="700" fill="#FFCC00" font-family="sans-serif">MTN</text></svg>
+                    </div>
+                    <h4>MTN MoMo</h4>
+                    <p class="donate-option-num">(+225) 05 45 32 30 78</p>
+                    <p class="donate-option-label">Diomine Digital Systems</p>
+                </div>
+                <div class="donate-option" style="border-color:rgba(0,102,204,0.25);">
+                    <div class="donate-option-icon" style="background:#0053A0;color:#fff;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#fff"/><path d="M8 12 L11 15 L16 9" stroke="#0053A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </div>
+                    <h4>Moov Money</h4>
+                    <p class="donate-option-num">(+225) 01 51 52 24 41</p>
+                    <p class="donate-option-label">Diomine Digital Systems</p>
+                </div>
+                <div class="donate-option" style="border-color:rgba(29,195,224,0.25);">
+                    <div class="donate-option-icon" style="background:#1DC3E0;color:#fff;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12 C4 7 8 4 12 4 C16 4 20 7 20 12 C20 17 16 20 12 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="12" cy="12" r="3" fill="#fff"/></svg>
+                    </div>
+                    <h4>Wave</h4>
+                    <p class="donate-option-num">(+225) 07 57 38 49 83</p>
+                    <p class="donate-option-label">Diomine Digital Systems</p>
+                </div>
+            </div>
+
+            <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--quartz-dim);margin-top:14px;text-align:center;">
+                <span class="lang-en">🔒 Secure payments powered by <strong style="color:var(--quartz)">CinetPay</strong> · Orange Money · MTN MoMo · Moov Money · Wave</span>
+                <span class="lang-fr">🔒 Paiements sécurisés via <strong style="color:var(--quartz)">CinetPay</strong> · Orange Money · MTN MoMo · Moov Money · Wave</span>
+            </p>
         </div>
     </section>
 
@@ -1979,6 +2155,12 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             getHits();
+
+            // Archives toggle
+            window.toggleArchives = function() {
+                document.getElementById('archivesToggle').classList.toggle('open');
+                document.getElementById('archivesList').classList.toggle('open');
+            };
 
             // Training catalog toggle
             window.toggleCatalog = function(idx) {
