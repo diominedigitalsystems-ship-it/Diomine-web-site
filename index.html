@@ -163,6 +163,33 @@
         [data-lang="en"] .explo-list.lang-fr,
         [data-lang="fr"] .explo-list.lang-en { display: none !important; }
 
+        /* ---------- SCROLLING MARQUEE ---------- */
+        .marquee-bar {
+            background: linear-gradient(90deg, var(--verdite), #3a7d52, var(--verdite));
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 1px solid rgba(79,148,104,0.4);
+        }
+        .marquee-track {
+            display: inline-block;
+            animation: marquee-scroll 28s linear infinite;
+            padding: 8px 0;
+        }
+        .marquee-track span {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            letter-spacing: 0.04em;
+            color: #fff;
+            padding: 0 60px;
+        }
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { animation: none; }
+        }
+
         /* ---------- ANNOUNCEMENT BAR ---------- */
         .announcement {
             background: var(--bedrock);
@@ -547,42 +574,40 @@
         .donate-option {
             border: 1px solid var(--hairline);
             border-radius: 8px;
-            padding: 14px;
+            padding: 16px 14px;
             text-align: center;
-            transition: border-color 0.2s, transform 0.2s;
-            cursor: default;
+            transition: border-color 0.2s, transform 0.2s, background 0.15s;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
         }
-        .donate-option:hover { border-color: var(--ochre-soft); transform: translateY(-2px); }
+        .donate-option:hover { border-color: var(--ochre-soft); transform: translateY(-2px); background: rgba(255,255,255,0.03); }
         .donate-option-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .donate-option h4 {
             font-family: var(--font-body);
-            font-size: 0.82rem;
+            font-size: 0.84rem;
             font-weight: 600;
             color: var(--quartz);
-            margin: 0 0 4px;
+            margin: 0 0 6px;
         }
-        .donate-option-num {
+        .donate-option-cta {
             font-family: var(--font-mono);
-            font-size: 0.74rem;
-            color: var(--quartz-dim);
-            letter-spacing: 0.02em;
-        }
-        .donate-option-label {
-            font-family: var(--font-mono);
-            font-size: 0.58rem;
+            font-size: 0.64rem;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: var(--quartz-dim);
+            padding: 5px 12px;
+            border-radius: 4px;
+            display: inline-block;
             margin-top: 4px;
         }
 
@@ -1283,6 +1308,15 @@
 
 <body data-lang="en">
 
+    <div class="marquee-bar">
+        <div class="marquee-track">
+            <span class="lang-en">📱 COMING SOON — Diomine Mobile: the power of Diomine on your smartphone · Field geology at your fingertips · Stay tuned!</span>
+            <span class="lang-fr">📱 BIENTÔT DISPONIBLE — Diomine Mobile : la puissance de Diomine sur votre smartphone · La géologie de terrain au bout des doigts · Restez connectés !</span>
+            <span class="lang-en">📱 COMING SOON — Diomine Mobile: the power of Diomine on your smartphone · Field geology at your fingertips · Stay tuned!</span>
+            <span class="lang-fr">📱 BIENTÔT DISPONIBLE — Diomine Mobile : la puissance de Diomine sur votre smartphone · La géologie de terrain au bout des doigts · Restez connectés !</span>
+        </div>
+    </div>
+
     <div class="announcement">
         <span class="lang-en"><strong>New release —</strong> Diomine 26.4 is now available</span>
         <span class="lang-fr"><strong>Nouvelle version —</strong> Diomine 26.4 est disponible</span>
@@ -1608,7 +1642,16 @@
                         <div class="catalog-part">
                             <p class="catalog-part-title lang-en">Part 1 · Mapping — 7 modules</p>
                             <p class="catalog-part-title lang-fr">Partie 1 · Cartographie — 7 modules</p>
-                            <ul class="catalog-mod-list">
+                            <ul class="catalog-mod-list lang-en">
+                                <li><span class="step-num">01</span> Multi-format import &amp; export (Excel, CSV, GPX, Raster, Shapefile, DXF)</li>
+                                <li><span class="step-num">02</span> Map georeferencing</li>
+                                <li><span class="step-num">03</span> Vector creation &amp; map digitizing</li>
+                                <li><span class="step-num">04</span> Automatic hydrographic network creation</li>
+                                <li><span class="step-num">05</span> Geolocated outcrop photo import</li>
+                                <li><span class="step-num">06</span> Structural measurement import &amp; display</li>
+                                <li><span class="step-num">07</span> Map layout &amp; export</li>
+                            </ul>
+                            <ul class="catalog-mod-list lang-fr">
                                 <li><span class="step-num">01</span> Import &amp; export multi-formats (Excel, CSV, GPX, Raster, Shapefile, DXF)</li>
                                 <li><span class="step-num">02</span> Géoréférencement d'une carte</li>
                                 <li><span class="step-num">03</span> Création de vecteurs et digitalisation</li>
@@ -1621,7 +1664,12 @@
                         <div class="catalog-part">
                             <p class="catalog-part-title lang-en">Part 2 · Mining Data — 3 modules</p>
                             <p class="catalog-part-title lang-fr">Partie 2 · Données Minières — 3 modules</p>
-                            <ul class="catalog-mod-list">
+                            <ul class="catalog-mod-list lang-en">
+                                <li><span class="step-num">08</span> Assay data import, categorization &amp; grade class display</li>
+                                <li><span class="step-num">09</span> DXF Digblock import &amp; excavation polygon digitizing</li>
+                                <li><span class="step-num">10</span> Grade distribution &amp; excavation map export</li>
+                            </ul>
+                            <ul class="catalog-mod-list lang-fr">
                                 <li><span class="step-num">08</span> Importation et catégorisation Assay &amp; classes de teneurs</li>
                                 <li><span class="step-num">09</span> Importation DXF Digblocks &amp; digitalisation de polygones d'excavation</li>
                                 <li><span class="step-num">10</span> Exportation de cartes de répartition de teneurs et d'excavation</li>
@@ -1643,7 +1691,18 @@
                     <div class="catalog-parts">
                         <div class="catalog-part">
                             <p class="catalog-part-title">9 modules</p>
-                            <ul class="catalog-mod-list">
+                            <ul class="catalog-mod-list lang-en">
+                                <li><span class="step-num">01</span> Structural database import</li>
+                                <li><span class="step-num">02</span> Cyclographic &amp; polar display on stereonet</li>
+                                <li><span class="step-num">03</span> Multi-criteria filters (name, type, project, date, year)</li>
+                                <li><span class="step-num">04</span> Cyclographic interpretation &amp; drill azimuth suggestion</li>
+                                <li><span class="step-num">05</span> Mean plane display &amp; export by structure family</li>
+                                <li><span class="step-num">06</span> Polar selection &amp; grouping by generation</li>
+                                <li><span class="step-num">07</span> Structure generation interpretation</li>
+                                <li><span class="step-num">08</span> Family measurements export (Excel/CSV)</li>
+                                <li><span class="step-num">09</span> Stereonet export (PNG/PDF)</li>
+                            </ul>
+                            <ul class="catalog-mod-list lang-fr">
                                 <li><span class="step-num">01</span> Import d'une base de données structurales</li>
                                 <li><span class="step-num">02</span> Affichage cyclographique et polaire sur stéréogramme</li>
                                 <li><span class="step-num">03</span> Filtres multicritères (nom, type, projet, date, année)</li>
@@ -1671,7 +1730,16 @@
                     <div class="catalog-parts">
                         <div class="catalog-part">
                             <p class="catalog-part-title">7 modules</p>
-                            <ul class="catalog-mod-list">
+                            <ul class="catalog-mod-list lang-en">
+                                <li><span class="step-num">01</span> Exploration trench import &amp; display</li>
+                                <li><span class="step-num">02</span> Trench face selection for display</li>
+                                <li><span class="step-num">03</span> Sample creation &amp; display on the trench</li>
+                                <li><span class="step-num">04</span> Sampling sheets, QAQC &amp; export (Excel/CSV)</li>
+                                <li><span class="step-num">05</span> Geological digitizing &amp; interpretation on section</li>
+                                <li><span class="step-num">06</span> Structural measurements display on section</li>
+                                <li><span class="step-num">07</span> Section layout &amp; export (PNG/PDF)</li>
+                            </ul>
+                            <ul class="catalog-mod-list lang-fr">
                                 <li><span class="step-num">01</span> Import et affichage d'une tranchée d'exploration</li>
                                 <li><span class="step-num">02</span> Choix de la face de la tranchée à afficher</li>
                                 <li><span class="step-num">03</span> Création et affichage d'échantillons sur la tranchée</li>
@@ -1697,7 +1765,25 @@
                     <div class="catalog-parts">
                         <div class="catalog-part">
                             <p class="catalog-part-title">16 modules</p>
-                            <ul class="catalog-mod-list">
+                            <ul class="catalog-mod-list lang-en">
+                                <li><span class="step-num">01</span> XRF field mapping data import &amp; display</li>
+                                <li><span class="step-num">02</span> Chemical Index of Alteration (CIA) calculation</li>
+                                <li><span class="step-num">03</span> Regolith interpretation</li>
+                                <li><span class="step-num">04</span> Zr/Ti ratio calculation</li>
+                                <li><span class="step-num">05</span> Crystallophyllian geology interpretation</li>
+                                <li><span class="step-num">06</span> Herron index calculation</li>
+                                <li><span class="step-num">07</span> Sedimentary geology interpretation</li>
+                                <li><span class="step-num">08</span> Hydrothermal alteration index calculation</li>
+                                <li><span class="step-num">09</span> Mineralization signature interpretation</li>
+                                <li><span class="step-num">10</span> Graphical alteration index display &amp; interpretation</li>
+                                <li><span class="step-num">11</span> Graph export (PNG, PDF, Excel)</li>
+                                <li><span class="step-num">12</span> Alteration index value export</li>
+                                <li><span class="step-num">13</span> Alteration index import &amp; display</li>
+                                <li><span class="step-num">14</span> Geological &amp; alteration map digitizing</li>
+                                <li><span class="step-num">15</span> Potentially mineralized anomalous zone targeting</li>
+                                <li><span class="step-num">16</span> Final map layout &amp; export</li>
+                            </ul>
+                            <ul class="catalog-mod-list lang-fr">
                                 <li><span class="step-num">01</span> Import et affichage de données XRF mapping</li>
                                 <li><span class="step-num">02</span> Calcul de l'indice chimique d'altération (CIA)</li>
                                 <li><span class="step-num">03</span> Interprétation du régolithe</li>
@@ -1732,7 +1818,17 @@
                     <div class="catalog-parts">
                         <div class="catalog-part">
                             <p class="catalog-part-title">8 modules</p>
-                            <ul class="catalog-mod-list">
+                            <ul class="catalog-mod-list lang-en">
+                                <li><span class="step-num">01</span> Collar, survey, litho &amp; assay data import &amp; display</li>
+                                <li><span class="step-num">02</span> Grade class display &amp; categorization</li>
+                                <li><span class="step-num">03</span> Lithological class display &amp; categorization</li>
+                                <li><span class="step-num">04</span> Drillhole section creation &amp; display</li>
+                                <li><span class="step-num">05</span> Mineralized envelope digitizing</li>
+                                <li><span class="step-num">06</span> Drilling or soil geochemistry program planning</li>
+                                <li><span class="step-num">07</span> Map layout &amp; export</li>
+                                <li><span class="step-num">08</span> Multi-format export (Excel, CSV, GPX, Raster, GPS)</li>
+                            </ul>
+                            <ul class="catalog-mod-list lang-fr">
                                 <li><span class="step-num">01</span> Import et affichage collar, survey, Litho et Assay</li>
                                 <li><span class="step-num">02</span> Affichage et catégorisation des classes de teneurs</li>
                                 <li><span class="step-num">03</span> Affichage et catégorisation des classes lithologiques</li>
@@ -1928,18 +2024,6 @@
 
             <div class="specimen">
                 <div class="specimen-top">
-                    <img src="mrn-icon.png" class="specimen-logo" alt="Diomine MRN icon">
-                </div>
-                <h3>Diomine MRN 2026.1</h3>
-                <p class="specimen-spec">WIN · SETUP.EXE · V2026.1</p>
-                <p class="lang-en">Wireframing, drillhole sections, triangulation and mineral resource modelling.</p>
-                <p class="lang-fr">Wireframing, sections de forage, triangulation et modélisation de ressources minérales.</p>
-                <a href="mrn_setup.exe" class="btn btn-ghost btn-download lang-en">Download</a>
-                <a href="mrn_setup.exe" class="btn btn-ghost btn-download lang-fr">Télécharger</a>
-            </div>
-
-            <div class="specimen">
-                <div class="specimen-top">
                     <span style="font-size:42px;">📊</span>
                 </div>
                 <h3 class="lang-en">Training Data</h3>
@@ -1955,12 +2039,23 @@
 
         <button class="archives-toggle" id="archivesToggle" onclick="toggleArchives()">
             <span>
-                <span class="lang-en">📦 Previous releases — DH Auditor V2026.3.1 · V2026.3 · V2026.2 · V2026.1.2</span>
-                <span class="lang-fr">📦 Versions précédentes — DH Auditor V2026.3.1 · V2026.3 · V2026.2 · V2026.1.2</span>
+                <span class="lang-en">📦 Previous releases — MRN V2026.1 · DH Auditor V2026.3.1 · V2026.3 · V2026.2 · V2026.1.2</span>
+                <span class="lang-fr">📦 Versions précédentes — MRN V2026.1 · DH Auditor V2026.3.1 · V2026.3 · V2026.2 · V2026.1.2</span>
             </span>
             <span class="arrow">▾</span>
         </button>
         <div class="archives-list" id="archivesList">
+            <div class="archive-row">
+                <div class="archive-info">
+                    <img src="mrn-icon.png" class="archive-icon" alt="MRN V2026.1">
+                    <div>
+                        <div class="archive-name">Diomine MRN 2026.1</div>
+                        <div class="archive-meta">WIN · SETUP.EXE · V2026.1</div>
+                    </div>
+                </div>
+                <a href="mrn_setup.exe" class="archive-dl lang-en">Download</a>
+                <a href="mrn_setup.exe" class="archive-dl lang-fr">Télécharger</a>
+            </div>
             <div class="archive-row">
                 <div class="archive-info">
                     <img src="Diomine-26-4.ico" class="archive-icon" alt="V2026.3.1">
@@ -2051,38 +2146,42 @@
             <p class="eyebrow lang-fr" style="margin-bottom:12px">Mobile Money · Faites un don pour soutenir le projet</p>
 
             <div class="donate-grid">
-                <div class="donate-option" style="border-color:rgba(255,102,0,0.25);">
+                <a href="tel:+2250718317798" class="donate-option" style="border-color:rgba(255,102,0,0.25);">
                     <div class="donate-option-icon" style="background:#FF6600;color:#fff;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="6" fill="#FF6600"/></svg>
                     </div>
                     <h4>Orange Money</h4>
-                    <p class="donate-option-num">(+225) 07 18 31 77 98</p>
-                    <p class="donate-option-label">Diomine Digital Systems</p>
-                </div>
-                <div class="donate-option" style="border-color:rgba(255,204,0,0.25);">
+                    <span class="donate-option-cta" style="background:rgba(255,102,0,0.12);color:#FF6600;">
+                        <span class="lang-en">Donate now</span><span class="lang-fr">Faire un don</span>
+                    </span>
+                </a>
+                <a href="tel:+2250545323078" class="donate-option" style="border-color:rgba(255,204,0,0.25);">
                     <div class="donate-option-icon" style="background:#FFCC00;color:#1a1a1a;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" fill="#1a1a1a"/><text x="12" y="15" text-anchor="middle" font-size="7" font-weight="700" fill="#FFCC00" font-family="sans-serif">MTN</text></svg>
                     </div>
                     <h4>MTN MoMo</h4>
-                    <p class="donate-option-num">(+225) 05 45 32 30 78</p>
-                    <p class="donate-option-label">Diomine Digital Systems</p>
-                </div>
-                <div class="donate-option" style="border-color:rgba(0,102,204,0.25);">
+                    <span class="donate-option-cta" style="background:rgba(255,204,0,0.1);color:#FFCC00;">
+                        <span class="lang-en">Donate now</span><span class="lang-fr">Faire un don</span>
+                    </span>
+                </a>
+                <a href="tel:+2250151522441" class="donate-option" style="border-color:rgba(0,102,204,0.25);">
                     <div class="donate-option-icon" style="background:#0053A0;color:#fff;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#fff"/><path d="M8 12 L11 15 L16 9" stroke="#0053A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
                     </div>
                     <h4>Moov Money</h4>
-                    <p class="donate-option-num">(+225) 01 51 52 24 41</p>
-                    <p class="donate-option-label">Diomine Digital Systems</p>
-                </div>
-                <div class="donate-option" style="border-color:rgba(29,195,224,0.25);">
+                    <span class="donate-option-cta" style="background:rgba(0,83,160,0.12);color:#4a9ede;">
+                        <span class="lang-en">Donate now</span><span class="lang-fr">Faire un don</span>
+                    </span>
+                </a>
+                <a href="tel:+2250718317798" class="donate-option" style="border-color:rgba(29,195,224,0.25);">
                     <div class="donate-option-icon" style="background:#1DC3E0;color:#fff;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12 C4 7 8 4 12 4 C16 4 20 7 20 12 C20 17 16 20 12 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="12" cy="12" r="3" fill="#fff"/></svg>
                     </div>
                     <h4>Wave</h4>
-                    <p class="donate-option-num">(+225) 07 18 31 77 98</p>
-                    <p class="donate-option-label">Diomine Digital Systems</p>
-                </div>
+                    <span class="donate-option-cta" style="background:rgba(29,195,224,0.12);color:#1DC3E0;">
+                        <span class="lang-en">Donate now</span><span class="lang-fr">Faire un don</span>
+                    </span>
+                </a>
             </div>
 
             <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--quartz-dim);margin-top:14px;text-align:center;">
