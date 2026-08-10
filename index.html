@@ -54,7 +54,9 @@
             "contactType": "customer support"
         },
         "sameAs": [
-            "https://github.com/diominedigitalsystems-ship-it"
+            "https://github.com/diominedigitalsystems-ship-it",
+            "https://youtube.com/@diominedigitalsystems",
+            "https://web.facebook.com/diominedigitalsystems"
         ]
     }
     </script>
@@ -609,6 +611,45 @@
             border-radius: 4px;
             display: inline-block;
             margin-top: 4px;
+        }
+
+        /* ---------- SOCIAL BAR ---------- */
+        .social-bar {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding: 28px var(--edge);
+            border-top: 1px solid var(--hairline);
+            border-bottom: 1px solid var(--hairline);
+            background: var(--bedrock);
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 1px solid var(--hairline);
+            border-radius: 10px;
+            transition: 0.2s;
+            flex: 1;
+            max-width: 320px;
+            justify-content: center;
+        }
+        .social-link:hover { transform: translateY(-2px); }
+        .social-link.yt { border-color: rgba(255,0,0,0.2); }
+        .social-link.yt:hover { background: rgba(255,0,0,0.06); border-color: rgba(255,0,0,0.4); }
+        .social-link.fb { border-color: rgba(24,119,242,0.2); }
+        .social-link.fb:hover { background: rgba(24,119,242,0.06); border-color: rgba(24,119,242,0.4); }
+        .social-icon { width: 32px; height: 32px; flex-shrink: 0; }
+        .social-text { display: flex; flex-direction: column; }
+        .social-name { font-weight: 600; font-size: 0.9rem; color: var(--quartz); }
+        .social-cta { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; }
+        .social-link.yt .social-cta { color: #ff4444; }
+        .social-link.fb .social-cta { color: #1877f2; }
+        @media (max-width: 600px) {
+            .social-bar { flex-direction: column; align-items: center; }
+            .social-link { max-width: 100%; }
         }
 
         /* ---------- FOOTER ---------- */
@@ -2184,7 +2225,7 @@
                 </a>
             </div>
 
-            <div id="donateToast" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--verdite);color:#fff;font-family:var(--font-mono);font-size:0.78rem;padding:12px 24px;border-radius:8px;z-index:10001;box-shadow:0 8px 24px rgba(0,0,0,0.4);text-align:center;max-width:90vw;"></div>
+            <div id="donateToast" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--bedrock);color:var(--quartz);font-family:var(--font-body);font-size:0.84rem;padding:20px 28px;border-radius:12px;z-index:10001;box-shadow:0 12px 40px rgba(0,0,0,0.6);text-align:left;max-width:400px;width:90vw;border:1px solid var(--verdite);line-height:1.6;"></div>
 
             <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--quartz-dim);margin-top:14px;text-align:center;">
                 <span class="lang-en">🔒 Secure payments powered by <strong style="color:var(--quartz)">CinetPay</strong> · Orange Money · MTN MoMo · Moov Money · Wave</span>
@@ -2192,6 +2233,31 @@
             </p>
         </div>
     </section>
+
+    <div class="social-bar">
+        <a href="https://youtube.com/@diominedigitalsystems?si=qrMRnWegEGaBpmBX" target="_blank" class="social-link yt">
+            <svg class="social-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="10" fill="#FF0000"/>
+                <polygon points="20,15 20,33 34,24" fill="#fff"/>
+            </svg>
+            <div class="social-text">
+                <span class="social-name">YouTube</span>
+                <span class="social-cta lang-en">Watch our tutorials</span>
+                <span class="social-cta lang-fr">Voir nos tutoriels</span>
+            </div>
+        </a>
+        <a href="https://web.facebook.com/diominedigitalsystems" target="_blank" class="social-link fb">
+            <svg class="social-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="10" fill="#1877F2"/>
+                <path d="M29 25.5h-3.5V38h-5V25.5H17v-4.5h3.5v-3c0-3.5 1.7-5.5 5.2-5.5h3.8v4.5h-2.3c-1.5 0-1.7.7-1.7 1.8V21H29l-.5 4.5z" fill="#fff"/>
+            </svg>
+            <div class="social-text">
+                <span class="social-name">Facebook</span>
+                <span class="social-cta lang-en">Follow our page</span>
+                <span class="social-cta lang-fr">Suivre notre page</span>
+            </div>
+        </a>
+    </div>
 
     <footer>
         <div class="footer-grid">
@@ -2253,19 +2319,56 @@
                 }
             };
 
-            // Mobile Money wallet links
+            // Mobile Money wallet — auto-copy + open app
             window.copyDonateNum = function(num, name) {
-                var fullNum = '+225 ' + num;
+                event.preventDefault();
+                var fullNum = '+225' + num;
                 var lang = document.body.getAttribute('data-lang') || 'en';
-                try { navigator.clipboard.writeText(fullNum); } catch(e) {}
+
+                // 1. Copy number to clipboard
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(fullNum);
+                } else {
+                    var ta = document.createElement('textarea');
+                    ta.value = fullNum;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                }
+
+                // 2. Show instructions toast
                 var toast = document.getElementById('donateToast');
                 if (lang === 'fr') {
-                    toast.innerHTML = '✅ N° <strong>' + fullNum + '</strong> copié !<br>Collez-le dans ' + name + ' → Envoyer → Nom : <strong>Diomine Digital Systems</strong>';
+                    toast.innerHTML = '✅ <strong>' + fullNum + '</strong> copié dans le presse-papiers !<br><br>' +
+                        '📲 Ouvrez <strong>' + name + '</strong> sur votre téléphone<br>' +
+                        '➡️ Collez le numéro dans « Envoyer de l\'argent »<br>' +
+                        '➡️ Nom : <strong>Diomine Digital Systems</strong><br>' +
+                        '➡️ Entrez le montant de votre don et confirmez';
                 } else {
-                    toast.innerHTML = '✅ Number <strong>' + fullNum + '</strong> copied!<br>Paste it in ' + name + ' → Send → Name: <strong>Diomine Digital Systems</strong>';
+                    toast.innerHTML = '✅ <strong>' + fullNum + '</strong> copied to clipboard!<br><br>' +
+                        '📲 Open <strong>' + name + '</strong> on your phone<br>' +
+                        '➡️ Paste the number in "Send money"<br>' +
+                        '➡️ Name: <strong>Diomine Digital Systems</strong><br>' +
+                        '➡️ Enter your donation amount and confirm';
                 }
                 toast.style.display = 'block';
-                setTimeout(function() { toast.style.display = 'none'; }, 6000);
+
+                // 3. Open the wallet app after a short delay
+                var urls = {
+                    'Orange Money': 'https://play.google.com/store/apps/details?id=com.orange.myorange',
+                    'MTN MoMo': 'https://play.google.com/store/apps/details?id=com.mtn.mymtn',
+                    'Moov Money': 'https://play.google.com/store/apps/details?id=com.moov.moneyci',
+                    'Wave': 'https://play.google.com/store/apps/details?id=com.wave.personal'
+                };
+                setTimeout(function() {
+                    window.open(urls[name] || '#', '_blank');
+                }, 800);
+
+                // 4. Hide toast after 10s
+                setTimeout(function() { toast.style.display = 'none'; }, 10000);
             };
 
             // Mobile nav toggle
