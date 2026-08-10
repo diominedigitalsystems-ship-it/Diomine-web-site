@@ -2187,40 +2187,40 @@
             <p class="eyebrow lang-fr" style="margin-bottom:12px">Mobile Money · Faites un don pour soutenir le projet</p>
 
             <div class="donate-grid">
-                <a href="https://play.google.com/store/apps/details?id=com.orange.myorange" target="_blank" class="donate-option" style="border-color:rgba(255,102,0,0.25);" onclick="copyDonateNum('0718317798','Orange Money')">
+                <a href="#" class="donate-option" style="border-color:rgba(255,102,0,0.25);" onclick="openWallet('orange','0718317798','Orange Money')">
                     <div class="donate-option-icon" style="background:#FF6600;color:#fff;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="6" fill="#FF6600"/></svg>
                     </div>
                     <h4>Orange Money</h4>
                     <span class="donate-option-cta" style="background:rgba(255,102,0,0.12);color:#FF6600;">
-                        <span class="lang-en">Open wallet</span><span class="lang-fr">Ouvrir le portefeuille</span>
+                        <span class="lang-en">Send a donation</span><span class="lang-fr">Envoyer un don</span>
                     </span>
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.mtn.mymtn" target="_blank" class="donate-option" style="border-color:rgba(255,204,0,0.25);" onclick="copyDonateNum('0545323078','MTN MoMo')">
+                <a href="#" class="donate-option" style="border-color:rgba(255,204,0,0.25);" onclick="openWallet('mtn','0545323078','MTN MoMo')">
                     <div class="donate-option-icon" style="background:#FFCC00;color:#1a1a1a;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" fill="#1a1a1a"/><text x="12" y="15" text-anchor="middle" font-size="7" font-weight="700" fill="#FFCC00" font-family="sans-serif">MTN</text></svg>
                     </div>
                     <h4>MTN MoMo</h4>
                     <span class="donate-option-cta" style="background:rgba(255,204,0,0.1);color:#FFCC00;">
-                        <span class="lang-en">Open wallet</span><span class="lang-fr">Ouvrir le portefeuille</span>
+                        <span class="lang-en">Send a donation</span><span class="lang-fr">Envoyer un don</span>
                     </span>
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.moov.moneyci" target="_blank" class="donate-option" style="border-color:rgba(0,102,204,0.25);" onclick="copyDonateNum('0151522441','Moov Money')">
+                <a href="#" class="donate-option" style="border-color:rgba(0,102,204,0.25);" onclick="openWallet('moov','0151522441','Moov Money')">
                     <div class="donate-option-icon" style="background:#0053A0;color:#fff;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#fff"/><path d="M8 12 L11 15 L16 9" stroke="#0053A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
                     </div>
                     <h4>Moov Money</h4>
                     <span class="donate-option-cta" style="background:rgba(0,83,160,0.12);color:#4a9ede;">
-                        <span class="lang-en">Open wallet</span><span class="lang-fr">Ouvrir le portefeuille</span>
+                        <span class="lang-en">Send a donation</span><span class="lang-fr">Envoyer un don</span>
                     </span>
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.wave.personal" target="_blank" class="donate-option" style="border-color:rgba(29,195,224,0.25);" onclick="copyDonateNum('0718317798','Wave')">
+                <a href="#" class="donate-option" style="border-color:rgba(29,195,224,0.25);" onclick="openWallet('wave','0718317798','Wave')">
                     <div class="donate-option-icon" style="background:#1DC3E0;color:#fff;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12 C4 7 8 4 12 4 C16 4 20 7 20 12 C20 17 16 20 12 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="12" cy="12" r="3" fill="#fff"/></svg>
                     </div>
                     <h4>Wave</h4>
                     <span class="donate-option-cta" style="background:rgba(29,195,224,0.12);color:#1DC3E0;">
-                        <span class="lang-en">Open wallet</span><span class="lang-fr">Ouvrir le portefeuille</span>
+                        <span class="lang-en">Send a donation</span><span class="lang-fr">Envoyer un don</span>
                     </span>
                 </a>
             </div>
@@ -2319,56 +2319,67 @@
                 }
             };
 
-            // Mobile Money wallet — auto-copy + open app
-            window.copyDonateNum = function(num, name) {
+            // Mobile Money — USSD direct transfer with number pre-filled
+            window.openWallet = function(operator, num, name) {
                 event.preventDefault();
                 var fullNum = '+225' + num;
                 var lang = document.body.getAttribute('data-lang') || 'en';
 
-                // 1. Copy number to clipboard
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(fullNum);
-                } else {
-                    var ta = document.createElement('textarea');
-                    ta.value = fullNum;
-                    ta.style.position = 'fixed';
-                    ta.style.opacity = '0';
-                    document.body.appendChild(ta);
-                    ta.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(ta);
-                }
+                // 1. Copy number to clipboard (fallback)
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(fullNum);
+                    } else {
+                        var ta = document.createElement('textarea');
+                        ta.value = fullNum;
+                        ta.style.cssText = 'position:fixed;opacity:0';
+                        document.body.appendChild(ta);
+                        ta.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(ta);
+                    }
+                } catch(e) {}
 
-                // 2. Show instructions toast
+                // 2. USSD codes per operator (CI) — pre-fills recipient number
+                var ussdCodes = {
+                    'orange': '%23144%2A1%2A' + num + '%23',
+                    'mtn':    '%2A133%2A1%2A' + num + '%23',
+                    'moov':   '%2A155%2A1%2A' + num + '%23',
+                    'wave':   null
+                };
+
+                var appStores = {
+                    'orange': 'https://play.google.com/store/apps/details?id=com.orange.myorange',
+                    'mtn':    'https://play.google.com/store/apps/details?id=com.mtn.mymtn',
+                    'moov':   'https://play.google.com/store/apps/details?id=com.moov.moneyci',
+                    'wave':   'https://play.google.com/store/apps/details?id=com.wave.personal'
+                };
+
+                // 3. Show confirmation toast
                 var toast = document.getElementById('donateToast');
                 if (lang === 'fr') {
-                    toast.innerHTML = '✅ <strong>' + fullNum + '</strong> copié dans le presse-papiers !<br><br>' +
-                        '📲 Ouvrez <strong>' + name + '</strong> sur votre téléphone<br>' +
-                        '➡️ Collez le numéro dans « Envoyer de l\'argent »<br>' +
-                        '➡️ Nom : <strong>Diomine Digital Systems</strong><br>' +
-                        '➡️ Entrez le montant de votre don et confirmez';
+                    toast.innerHTML = '📲 <strong>' + name + '</strong> s\'ouvre...<br>' +
+                        '✅ N° <strong>' + fullNum + '</strong> pré-rempli<br>' +
+                        '➡️ Entrez le montant et votre code secret pour confirmer<br>' +
+                        '<span style="font-size:0.76rem;color:var(--quartz-dim);">Nom du bénéficiaire : <strong style="color:var(--gold-vein)">Diomine Digital Systems</strong></span>';
                 } else {
-                    toast.innerHTML = '✅ <strong>' + fullNum + '</strong> copied to clipboard!<br><br>' +
-                        '📲 Open <strong>' + name + '</strong> on your phone<br>' +
-                        '➡️ Paste the number in "Send money"<br>' +
-                        '➡️ Name: <strong>Diomine Digital Systems</strong><br>' +
-                        '➡️ Enter your donation amount and confirm';
+                    toast.innerHTML = '📲 <strong>' + name + '</strong> is opening...<br>' +
+                        '✅ Number <strong>' + fullNum + '</strong> pre-filled<br>' +
+                        '➡️ Enter the amount and your secret code to confirm<br>' +
+                        '<span style="font-size:0.76rem;color:var(--quartz-dim);">Beneficiary: <strong style="color:var(--gold-vein)">Diomine Digital Systems</strong></span>';
                 }
                 toast.style.display = 'block';
-
-                // 3. Open the wallet app after a short delay
-                var urls = {
-                    'Orange Money': 'https://play.google.com/store/apps/details?id=com.orange.myorange',
-                    'MTN MoMo': 'https://play.google.com/store/apps/details?id=com.mtn.mymtn',
-                    'Moov Money': 'https://play.google.com/store/apps/details?id=com.moov.moneyci',
-                    'Wave': 'https://play.google.com/store/apps/details?id=com.wave.personal'
-                };
-                setTimeout(function() {
-                    window.open(urls[name] || '#', '_blank');
-                }, 800);
-
-                // 4. Hide toast after 10s
                 setTimeout(function() { toast.style.display = 'none'; }, 10000);
+
+                // 4. Open USSD (mobile) or app store (desktop/fallback)
+                setTimeout(function() {
+                    var ussd = ussdCodes[operator];
+                    if (ussd && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                        window.location.href = 'tel:' + ussd;
+                    } else {
+                        window.open(appStores[operator], '_blank');
+                    }
+                }, 600);
             };
 
             // Mobile nav toggle
